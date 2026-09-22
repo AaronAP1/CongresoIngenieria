@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibición Técnica y Área Comercial — I Congreso Nacional de Ingeniería 2027</title>
+<meta name="description" content="Exhibición técnica y área comercial del I Congreso Nacional de Ingeniería: hasta 105 stands de 3×2 m en 1,824 m² de carpa, auditorio y sala de prensa. Conecta con decisores técnicos y genera oportunidades comerciales reales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles-v3.css">
+<script>
+/* Habilita la aparicion al hacer scroll antes del primer pintado, para que el
+   contenido no se vea y luego se esconda. Si js/main.js no llega a activar el
+   observador, el respaldo muestra todo igualmente. */
+(function () {
+  var d = document.documentElement;
+  d.classList.add("reveal-on");
+  setTimeout(function () {
+    if (!d.classList.contains("reveal-ready")) d.classList.remove("reveal-on");
+  }, 2500);
+})();
+</script>
+</head>
+<body class="v3">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand-lockup" aria-label="I Congreso Nacional de Ingeniería — Colegio de Ingenieros del Perú">
+      <span class="plate"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería — CONACIP Perú 2027"></span>
+      <span class="rule" aria-hidden="true"></span>
+      <img src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú" class="seal">
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="ejes-tematicos.html">Ejes temáticos</a>
+      <a href="comite-organizador.html">Comité organizador</a>
+      <a href="exhibicion.html" class="active">Exhibición</a>
+      <a href="patrocinio.html">Patrocinio</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="inscripcion.html" class="btn btn-primary nav-cta">Inscríbete</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="page-header page-header--photo">
+  <div class="container">
+    <span class="eyebrow">Para empresas exhibidoras</span>
+    <h1>Exhibición Técnica y Área Comercial</h1>
+    <p>Hasta 105 stands de 3 × 2 m en una carpa de 1,824 m², con auditorio y sala de prensa, en el Cuartel General del Ejército del Perú.</p>
+    <p class="crumb"><a href="index.html">Inicio</a> / Exhibición</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Oportunidad comercial</span>
+      <h2>¿Por qué ser exhibidor en el <span style="white-space:nowrap">I Congreso Nacional de Ingeniería?</span></h2>
+    </div>
+    <div class="quote-block">
+      "El I Congreso Nacional de Ingeniería reúne a quienes lideran proyectos, toman decisiones técnicas y definen inversiones en exploración, minería y energía. <strong>Exhibir aquí no es presencia institucional: es oportunidad comercial real.</strong>"
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-head">
+      <h2>Ser exhibidor le permite</h2>
+    </div>
+    <div class="services-grid">
+      <ul class="checklist">
+        <li><span class="dot"></span>Conectar directamente con decisores técnicos y responsables de proyectos en curso.</li>
+        <li><span class="dot"></span>Presentar soluciones frente a necesidades concretas del sector, no a público general.</li>
+        <li><span class="dot"></span>Generar leads calificados en un entorno altamente especializado.</li>
+      </ul>
+      <ul class="checklist">
+        <li><span class="dot"></span>Posicionar su marca en el principal evento técnico del país.</li>
+        <li><span class="dot"></span>Identificar oportunidades de negocio en exploración, innovación y transición energética.</li>
+        <li><span class="dot"></span>Fortalecer relaciones estratégicas con clientes actuales y potenciales.</li>
+      </ul>
+    </div>
+    <div class="closing-quote">
+      El I Congreso Nacional de Ingeniería es un espacio donde las conversaciones se traducen en proyectos. Si su empresa busca visibilidad efectiva y oportunidades concretas, este es el lugar.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Beneficios</span>
+      <h2>Experiencia, networking y visibilidad</h2>
+    </div>
+    <div class="benefit-grid" style="margin-bottom:44px;">
+      <div class="benefit-card">
+        <h4>Difusión oficial</h4>
+        <p>Publicación de bienvenida y difusión de su participación en los canales oficiales del Congreso.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Zona de exhibición</h4>
+        <p>Acceso a la zona de exhibición y espacios de relacionamiento empresarial e institucional.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Networking</h4>
+        <p>Participación en actividades de networking, ruedas de contacto y encuentros entre empresas, academia, Estado y profesionales.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Posicionamiento de marca</h4>
+        <p>Oportunidades para fortalecer el posicionamiento de marca ante una audiencia altamente especializada.</p>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2>Servicios operativos</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <h4>Soporte permanente</h4>
+        <p>Soporte permanente antes y durante el evento para la coordinación de su participación.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Atención en sitio</h4>
+        <p>Atención e información en el área de exhibición durante las jornadas del Congreso.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Credenciales de stand</h4>
+        <p>Credenciales para el personal del stand y acceso a las actividades autorizadas.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Certificado digital</h4>
+        <p>Certificado digital de participación como empresa exhibidora.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Montaje y desmontaje</h4>
+        <p>Asistencia técnica y logística para montaje y desmontaje de su stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" style="justify-content:center">Área comercial</span>
+      <h2>Capacidad de la exhibición</h2>
+    </div>
+    <div class="capacity-box">
+      <div class="stat-box">
+        <div class="big">1,824 m²</div>
+        <div class="small">carpa de exhibición (57 × 32 m)</div>
+      </div>
+      <div class="stat-box">
+        <div class="big">105</div>
+        <div class="small">stands disponibles de 3 × 2 m</div>
+      </div>
+      <div class="stat-box">
+        <div class="big">84 + 43</div>
+        <div class="small">aforo del auditorio y de la sala de prensa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Ficha técnica</span>
+      <h2>Montaje y espacios</h2>
+      <p>Especificaciones preliminares del área de exhibición. Las dimensiones y capacidades son sugeridas y pueden ajustarse según el requerimiento final.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <div class="spec-head">
+          <span class="tick" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <h3>Bosquejo preliminar</h3>
+        </div>
+        <ul class="checklist">
+          <li><span class="dot"></span>Toldo / carpa de 1,824 m² (57 × 32 m).</li>
+          <li><span class="dot"></span>Estructura Layher en caída, tipo a dos aguas con cobertor.</li>
+          <li><span class="dot"></span>Tapizón gris acanalado en todo el piso.</li>
+        </ul>
+      </div>
+
+      <div class="spec-card accent-red">
+        <div class="spec-head">
+          <span class="tick" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <h3>Modulación preliminar del stand</h3>
+        </div>
+        <ul class="checklist">
+          <li><span class="dot"></span>El área permite hasta 105 stands de 3 × 2 m.</li>
+          <li><span class="dot"></span>Estructurado en sistema Octanorm / Alusett.</li>
+          <li><span class="dot"></span>Panelería en melamina blanca con friso.</li>
+          <li><span class="dot"></span>Mobiliario básico: una mesa baja y dos sillas bajas negras.</li>
+        </ul>
+      </div>
+
+      <div class="spec-card">
+        <div class="spec-head">
+          <span class="tick" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <h3>Auditorio</h3>
+        </div>
+        <ul class="checklist">
+          <li><span class="dot"></span>Capacidad para 84 personas (sugerido).</li>
+          <li><span class="dot"></span>Área promedio de 13 × 10 m.</li>
+          <li><span class="dot"></span>Estructura Octanorm / Alusett, perímetro a 5 m de altura.</li>
+          <li><span class="dot"></span>Tarima de 6 × 3 × 0.60 m forrada en tapizón gris.</li>
+          <li><span class="dot"></span>Iluminación interior con 18 reflectores.</li>
+          <li><span class="dot"></span>Podio de Alusett y 84 sillas bajas negras.</li>
+        </ul>
+        <p class="spec-note">Replicable o ampliable según requerimiento.</p>
+      </div>
+
+      <div class="spec-card accent-red">
+        <div class="spec-head">
+          <span class="tick" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <h3>Sala de prensa</h3>
+        </div>
+        <ul class="checklist">
+          <li><span class="dot"></span>Capacidad para 43 personas (sugerido).</li>
+          <li><span class="dot"></span>Área promedio de 7 × 10 m.</li>
+          <li><span class="dot"></span>Estructura Octanorm / Alusett, perímetro de 70 m a 2.50 m de altura.</li>
+          <li><span class="dot"></span>Iluminación interior con 12 reflectores.</li>
+          <li><span class="dot"></span>Mobiliario por establecer.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Para su equipo de diseño</span>
+      <h2>Medidas de gráfica del stand</h2>
+      <p>Medida interna del stand de 3 × 2 m: <strong>2.93 m de ancho por 1.98 m de profundidad</strong>. Estas son las áreas útiles para aplicar gráfica.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Zona</th>
+            <th>Ubicación</th>
+            <th>Alto (H)</th>
+            <th>Ancho (A)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A</strong></td>
+            <td>Paneles laterales y de fondo</td>
+            <td>2.38 m</td>
+            <td>0.95 m</td>
+          </tr>
+          <tr>
+            <td><strong>B</strong></td>
+            <td>Friso frontal (rótulo del stand)</td>
+            <td>0.20 m</td>
+            <td>2.07 m</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box" style="margin-top:26px;">
+      <h4>Antes de enviar sus archivos</h4>
+      <p>Para el uso de gráficas, deje <strong>1 cm de demasía a cada lado</strong> de cada pieza. El friso frontal lleva el nombre de la empresa exhibidora.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="pending-box">
+      <span class="badge-soon">Próximamente</span>
+      <h3 style="margin-top:14px;">Tarifas de exhibición</h3>
+      <p>Estamos definiendo la tabla de tarifas por categoría de stand. Déjenos su correo y le escribiremos en cuanto se publique.</p>
+
+      <form class="newsletter-form" data-placeholder-form>
+        <input type="email" required placeholder="Tu correo electrónico" aria-label="Correo electrónico">
+        <button type="submit" class="btn btn-primary">Avísame</button>
+      </form>
+      <p class="form-note">Te escribiremos apenas publiquemos la tabla completa de tarifas.</p>
+      <div class="form-success">¡Gracias! Te avisaremos apenas publiquemos las tarifas de exhibición.</div>
+    </div>
+
+    <div class="note-box" style="margin-top:32px;">
+      <h4>Condiciones de pago</h4>
+      <p>Las tarifas <strong>no incluyen IGV</strong>.</p>
+      <p>Para pagos realizados desde el extranjero, las comisiones bancarias asociadas a la transferencia deberán ser asumidas por la empresa participante, incluyendo cualquier cargo aplicado por el banco emisor, bancos intermediarios o el banco receptor. Agradeceremos gestionar la operación bajo <strong>modalidad OUR</strong> (gastos a cargo del ordenante), de modo que el importe neto acreditado corresponda íntegramente al monto total facturado, sin deducciones.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h3>Reserve su espacio en la exhibición técnica</h3>
+        <p>Escríbanos para recibir el brochure comercial y coordinar la disponibilidad de stands.</p>
+      </div>
+      <a href="contacto.html" class="btn btn-gold">Contactar al equipo comercial</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="mark-badge"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería"></span>
+          <img class="seal" src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú">
+        </div>
+        <p>Organiza: Colegio de Ingenieros del Perú — Consejo Nacional. Del 05 al 09 de julio de 2027, Lima, Peru</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook (próximamente)" title="Próximamente">f</a>
+          <a href="#" aria-label="Instagram (próximamente)" title="Próximamente">ig</a>
+          <a href="#" aria-label="LinkedIn (próximamente)" title="Próximamente">in</a>
+          <a href="#" aria-label="TikTok (próximamente)" title="Próximamente">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ejes-tematicos.html">Ejes temáticos</a></li>
+          <li><a href="comite-organizador.html">Comité organizador</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Participa</h4>
+        <ul>
+          <li><a href="inscripcion.html">Inscripción</a></li>
+          <li><a href="exhibicion.html">Exhibición técnica</a></li>
+          <li><a href="patrocinio.html">Patrocinio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.cip.org.pe" target="_blank" rel="noopener">www.cip.org.pe</a></li>
+          <li>Colegio de Ingenieros del Perú</li>
+          <li>Consejo Nacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2027 Colegio de Ingenieros del Perú — Consejo Nacional.</span>
+      <span>I Congreso Nacional de Ingeniería</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{print $5, $9}')",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --window-size=1440,460 '--user-data-dir=C:\\\\Users\\\\Vladimir\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--PaginaWeb-CongresoInge\\\\379dcfe6-1d3c-4178-accc-88df6d34eb5c\\\\scratchpad\\\\edge-h' '--screenshot=C:\\\\Users\\\\Vladimir\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--PaginaWeb-CongresoInge\\\\379dcfe6-1d3c-4178-accc-88df6d34eb5c\\\\scratchpad\\\\hdr-photo3.png' file:///C:/Users/Vladimir/AppData/Local/Temp/claude/d--PaginaWeb-CongresoInge/379dcfe6-1d3c-4178-accc-88df6d34eb5c/scratchpad/hdr.html)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files --window-size=1440,470 '--user-data-dir=C:\\\\Users\\\\Vladimir\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--PaginaWeb-CongresoInge\\\\379dcfe6-1d3c-4178-accc-88df6d34eb5c\\\\scratchpad\\\\edge-h' '--screenshot=C:\\\\Users\\\\Vladimir\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--PaginaWeb-CongresoInge\\\\379dcfe6-1d3c-4178-accc-88df6d34eb5c\\\\scratchpad\\\\hdr-A.png' file:///C:/Users/Vladimir/AppData/Local/Temp/claude/d--PaginaWeb-CongresoInge/379dcfe6-1d3c-4178-accc-88df6d34eb5c/scratchpad/hdr.html)"
+    ]
+  }
+}

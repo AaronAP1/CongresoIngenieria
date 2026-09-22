@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejes Temáticos — I Congreso Nacional de Ingeniería 2027</title>
+<meta name="description" content="Los 7 ejes temáticos del I Congreso Nacional de Ingeniería: Minería y Transición Energética, Agua y Seguridad Climática, Infraestructura, Transformación Digital, Productividad, Educación y Gobernanza Técnica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles-v3.css">
+</head>
+<body class="v3">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand-lockup" aria-label="I Congreso Nacional de Ingeniería — Colegio de Ingenieros del Perú">
+      <span class="plate"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería — CONACIP Perú 2027"></span>
+      <span class="rule" aria-hidden="true"></span>
+      <img src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú" class="seal">
+    </a>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="ejes-tematicos.html" class="active">Ejes temáticos</a>
+      <a href="comite-organizador.html">Comité organizador</a>
+      <a href="exhibicion.html">Exhibición</a>
+      <a href="patrocinio.html">Patrocinio</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="inscripcion.html" class="btn btn-primary nav-cta">Inscríbete</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <span class="eyebrow">Programa académico</span>
+    <h1>Ejes Temáticos</h1>
+    <p>Siete ejes articulan la agenda técnica del Congreso, integrando al Estado, la empresa, la academia y los profesionales que impulsan las soluciones que el Perú necesita.</p>
+    <p class="crumb"><a href="index.html">Inicio</a> / Ejes temáticos</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:32px;">
+      <p style="max-width:640px;margin:0 auto;color:var(--gray-500);">Toca o haz clic en cada tarjeta para ver la descripción completa del eje.</p>
+    </div>
+
+    <div class="ejes-grid">
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-11 4 6 2-3 6 8H3z"/><circle cx="17" cy="6" r="2"/></svg>
+            </div>
+            <span class="eje-num">1</span>
+            <h3>Minería, Recursos y Transición Energética</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 1</span>
+            <h4>Minería, Recursos y Transición Energética</h4>
+            <p>Este eje posiciona a la minería y a los recursos naturales como plataformas estratégicas para el desarrollo económico, tecnológico y territorial del Perú. Aborda el desafío de aprovechar responsablemente nuestra riqueza geológica para responder a la creciente demanda mundial de minerales vinculados con la electrificación y la transición energética, generando mayor valor agregado, empleo formal, infraestructura y encadenamientos productivos nacionales. Promueve una minería moderna, segura, digitalizada y ambientalmente responsable, capaz de fortalecer proveedores peruanos, impulsar innovación, mejorar la gestión del agua y de los relaves, anticipar el cierre de minas y construir relaciones sostenibles con los territorios. El objetivo es evolucionar de un país principalmente extractor hacia una nación capaz de transformar sus recursos en conocimiento, industria, tecnología, competitividad y bienestar compartido.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s7 7.5 7 12a7 7 0 1 1-14 0c0-4.5 7-12 7-12z"/></svg>
+            </div>
+            <span class="eje-num">2</span>
+            <h3>Agua, Energía y Seguridad Climática</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 2</span>
+            <h4>Agua, Energía y Seguridad Climática</h4>
+            <p>Este eje reconoce el agua y la energía como activos estratégicos para la seguridad nacional, la vida, la producción y la estabilidad social. Propone una visión integrada que articule seguridad hídrica, saneamiento, eficiencia energética, diversificación de la matriz, energías renovables, adaptación climática y gestión territorial. Aborda los desafíos derivados de la escasez, la contaminación, las pérdidas en los sistemas de distribución, la desigualdad en el acceso y la creciente exposición del Perú a sequías, inundaciones, retroceso glaciar y eventos extremos. Promueve infraestructura resiliente, planificación por cuencas, reúso de aguas, recarga hídrica, almacenamiento energético, información interoperable y acuerdos entre ciudades, agricultura, minería, industria y ecosistemas. Su finalidad es garantizar que el crecimiento económico no esté limitado por la falta de agua o energía y que las decisiones actuales protejan la sostenibilidad de las futuras generaciones.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20M4 17V10M20 17V10M8 17v-4a4 4 0 0 1 8 0v4M2 10h20"/></svg>
+            </div>
+            <span class="eje-num">3</span>
+            <h3>Infraestructura, Territorio y Ciudades Sostenibles</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 3</span>
+            <h4>Infraestructura, Territorio y Ciudades Sostenibles</h4>
+            <p>Este eje plantea una nueva visión de infraestructura como instrumento de integración territorial, competitividad, inclusión y calidad de vida. No se limita a construir más obras, sino que busca planificar, ejecutar, operar y mantener infraestructura útil, resiliente y conectada con las necesidades reales de cada territorio. Integra transporte, puertos, aeropuertos, ferrocarriles, vivienda, movilidad urbana, agua, saneamiento, drenaje, conectividad digital y equipamiento público. Promueve mejores expedientes técnicos, contratos colaborativos, gestión de activos, BIM, prevención de controversias y estándares de resistencia frente a sismos, inundaciones, huaicos y cambio climático. El propósito es superar la lógica de proyectos aislados y avanzar hacia corredores de desarrollo, ciudades sostenibles y sistemas de infraestructura capaces de cerrar brechas, reducir costos logísticos, conectar regiones y generar oportunidades económicas en todo el Perú.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>
+            </div>
+            <span class="eje-num">4</span>
+            <h3>Transformación Digital, Industria 4.0 e Ingeniería de Datos</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 4</span>
+            <h4>Transformación Digital, Industria 4.0 e Ingeniería de Datos</h4>
+            <p>Este eje impulsa la transformación tecnológica del Perú mediante la aplicación estratégica de inteligencia artificial, ingeniería de datos, automatización, robótica, internet de las cosas, BIM, gemelos digitales y sistemas predictivos. Su enfoque no está centrado únicamente en incorporar tecnología, sino en utilizarla para resolver problemas concretos, elevar la productividad, mejorar servicios, reducir riesgos y fortalecer la capacidad de decisión del Estado y las empresas. Promueve infraestructura digital segura, interoperabilidad, calidad de datos, ciberseguridad, innovación abierta y formación de talento especializado. También incorpora criterios éticos para garantizar transparencia, protección de derechos e inclusión territorial. El objetivo es construir una ingeniería peruana capaz de diseñar soluciones digitales propias, modernizar sectores estratégicos y convertir la información en conocimiento útil para anticipar problemas, optimizar inversiones y competir en una economía global cada vez más tecnológica.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l4 3v-3l4 3v-3l4 3V21H3z"/><path d="M17 21v-6h4v6"/></svg>
+            </div>
+            <span class="eje-num">5</span>
+            <h3>Productividad, Industria y Competitividad Nacional</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 5</span>
+            <h4>Productividad, Industria y Competitividad Nacional</h4>
+            <p>Este eje posiciona a la ingeniería como la principal herramienta para elevar la productividad, fortalecer la industria y mejorar la capacidad competitiva del Perú. Busca transformar nuestras ventajas naturales en capacidades empresariales, tecnológicas y productivas sostenibles. Aborda la modernización de procesos, excelencia operacional, calidad, normalización, innovación, financiamiento, formalización y acceso de las MYPE a grandes cadenas de suministro. Promueve el desarrollo de proveedores nacionales, manufactura especializada, compras públicas inteligentes, clústeres regionales y exportación de servicios de ingeniería. Su propósito es que las empresas peruanas puedan diseñar, producir, escalar y competir con estándares internacionales, generando empleo de calidad y mayor valor agregado. El desafío es pasar de una economía dependiente de recursos y actividades de baja productividad hacia una estructura productiva diversificada, innovadora y conectada con los mercados globales.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+            </div>
+            <span class="eje-num">6</span>
+            <h3>Educación, Talento y Futuro de la Ingeniería</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 6</span>
+            <h4>Educación, Talento y Futuro de la Ingeniería</h4>
+            <p>Este eje reconoce al talento como la infraestructura más importante para el desarrollo futuro del Perú. Propone modernizar la formación de los ingenieros, fortaleciendo las ciencias básicas, el pensamiento crítico, la ética, la comunicación, el liderazgo y la capacidad de gestionar proyectos complejos. Incorpora competencias en inteligencia artificial, datos, automatización, sostenibilidad, ciberseguridad y gestión de riesgos como componentes transversales de todas las especialidades. Promueve una relación más estrecha entre universidad, empresa, Estado y sociedad mediante formación dual, prácticas, investigación aplicada y resolución de desafíos nacionales reales. También busca reducir las brechas territoriales y de género, ampliar oportunidades para jóvenes de todas las regiones e impulsar certificación y actualización profesional permanente. Su finalidad es formar ingenieros de clase mundial que comprendan el territorio, lideren innovación y actúen con responsabilidad frente al país.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="eje-card">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <div class="icon-badge">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0l-3-6zM19 7l-3 6a3 3 0 0 0 6 0l-3-6z"/></svg>
+            </div>
+            <span class="eje-num">7</span>
+            <h3>Gobernanza Técnica, Ética y Agenda País</h3>
+            <span class="hint">Clic para leer más</span>
+          </div>
+          <div class="eje-face eje-back">
+            <span class="eje-tag">Eje 7</span>
+            <h4>Gobernanza Técnica, Ética y Agenda País</h4>
+            <p>Este eje propone colocar la evidencia, la capacidad técnica y la responsabilidad profesional en el centro de las decisiones nacionales. Busca fortalecer una gobernanza capaz de planificar a largo plazo, priorizar inversiones, coordinar instituciones, ejecutar proyectos y rendir cuentas a la ciudadanía. Aborda la necesidad de profesionalizar el Estado, consolidar meritocracia, mejorar la formulación y supervisión de proyectos, fortalecer la descentralización y proteger las decisiones técnicas frente a la improvisación y los intereses coyunturales. Asimismo, promueve integridad, transparencia, seguridad pública y responsabilidad ética en el ejercicio de la ingeniería. El eje plantea que el CIP fortalezca su rol como referente técnico y órgano consultivo del país, articulando conocimiento especializado con políticas públicas. Su resultado central debe ser una Agenda Nacional de la Ingeniería con propuestas priorizadas, responsables, indicadores y seguimiento institucional.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tight bg-gray">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h3>¿Quieres participar en el programa académico?</h3>
+        <p>Conoce los beneficios de inscribirte y forma parte de la conversación técnica del país.</p>
+      </div>
+      <a href="inscripcion.html" class="btn btn-gold">Ver inscripción</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="mark-badge"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería"></span>
+          <img class="seal" src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú">
+        </div>
+        <p>Organiza: Colegio de Ingenieros del Perú — Consejo Nacional. Del 05 al 09 de julio de 2027, Lima, Peru</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook (próximamente)" title="Próximamente">f</a>
+          <a href="#" aria-label="Instagram (próximamente)" title="Próximamente">ig</a>
+          <a href="#" aria-label="LinkedIn (próximamente)" title="Próximamente">in</a>
+          <a href="#" aria-label="TikTok (próximamente)" title="Próximamente">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ejes-tematicos.html">Ejes temáticos</a></li>
+          <li><a href="comite-organizador.html">Comité organizador</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Participa</h4>
+        <ul>
+          <li><a href="inscripcion.html">Inscripción</a></li>
+          <li><a href="exhibicion.html">Exhibición técnica</a></li>
+          <li><a href="patrocinio.html">Patrocinio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.cip.org.pe" target="_blank" rel="noopener">www.cip.org.pe</a></li>
+          <li>Colegio de Ingenieros del Perú</li>
+          <li>Consejo Nacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2027 Colegio de Ingenieros del Perú — Consejo Nacional.</span>
+      <span>I Congreso Nacional de Ingeniería</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

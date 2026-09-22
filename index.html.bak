@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Congreso Nacional de Ingeniería 2027 — CIP Consejo Nacional (Propuesta 3)</title>
+<meta name="description" content="I Congreso Nacional de Ingeniería, organizado por el Colegio de Ingenieros del Perú - Consejo Nacional. Del 05 al 09 de julio de 2027, Lima, Peru">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles-v3.css">
+</head>
+<body class="v3">
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand-lockup" aria-label="I Congreso Nacional de Ingeniería — Colegio de Ingenieros del Perú">
+      <span class="plate"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería — CONACIP Perú 2027"></span>
+      <span class="rule" aria-hidden="true"></span>
+      <img src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú" class="seal">
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="ejes-tematicos.html">Ejes temáticos</a>
+      <a href="comite-organizador.html">Comité organizador</a>
+      <a href="exhibicion.html">Exhibición</a>
+      <a href="patrocinio.html">Patrocinio</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="inscripcion.html" class="btn btn-primary nav-cta">Inscríbete</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero-v3">
+  <div class="container">
+    <div class="hero-v3-grid">
+      <div class="hero-v3-content">
+        <p class="kicker">I Congreso</p>
+        <h1>Nacional de Ingeniería</h1>
+
+        <div class="hero-v3-meta">
+          <span class="chip-v3">
+            <span class="ic" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+            </span>
+            Del 05 al 09 de julio del 2027
+          </span>
+          <span class="chip-v3">
+            <span class="ic" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </span>
+            <span><span class="lbl">Sede:</span>Lima, Perú</span>
+          </span>
+        </div>
+
+        <p class="hero-v3-tagline">Ingeniería para el desarrollo, la competitividad y la sostenibilidad.</p>
+
+        <div class="hero-actions">
+          <a href="inscripcion.html" class="btn btn-primary">Quiero inscribirme</a>
+          <a href="ejes-tematicos.html" class="btn btn-outline">Ver ejes temáticos</a>
+        </div>
+
+        <div class="countdown" data-countdown aria-label="Cuenta regresiva al 5 de julio de 2027">
+          <div class="unit"><span class="num" data-days>00</span><span class="label">Días</span></div>
+          <div class="unit"><span class="num" data-hours>00</span><span class="label">Horas</span></div>
+          <div class="unit"><span class="num" data-minutes>00</span><span class="label">Min</span></div>
+          <div class="unit"><span class="num" data-seconds>00</span><span class="label">Seg</span></div>
+        </div>
+      </div>
+
+      <div class="hero-v3-visual">
+        <span class="accent" aria-hidden="true"></span>
+        <div class="frame">
+          <img src="assets/img/photo-manifiesto.jpg" alt="Ingeniero peruano con casco del Colegio de Ingenieros del Perú">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="organiza-strip">
+  <div class="container">
+    <span class="marks">
+      <img src="assets/img/logo-conacip.png" alt="CONACIP Perú 2027" class="logo-event">
+      <img src="assets/img/logo-cip-seal.png" alt="Sello del Colegio de Ingenieros del Perú" class="seal">
+    </span>
+    <p>Organiza: <strong>Colegio de Ingenieros del Perú</strong> — Consejo Nacional · <a href="https://www.cip.org.pe" target="_blank" rel="noopener">www.cip.org.pe</a></p>
+  </div>
+</div>
+
+<div class="sponsor-strip">
+  <div class="container">
+    <span class="tag">Auspiciadores y aliados</span>
+    <div class="sponsor-slots">
+      <span class="slot">Logo por confirmar</span>
+      <span class="slot">Logo por confirmar</span>
+      <span class="slot">Logo por confirmar</span>
+      <span class="slot">Logo por confirmar</span>
+      <span class="slot">Logo por confirmar</span>
+      <span class="slot">Logo por confirmar</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" style="justify-content:center">Información general</span>
+      <h2>Todo lo que necesitas saber</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+        </div>
+        <h3>Fecha</h3>
+        <p>5 al 9 de julio de 2027<br>I Congreso Nacional de Ingeniería del Perú.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <h3>Sede</h3>
+        <p>Lima, Perú.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15 14.2c2.9.5 5 2.7 5 5.8"/></svg>
+        </div>
+        <h3>Descripción</h3>
+        <p>Espacio de diálogo, innovación y desarrollo de la ingeniería nacional peruana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container">
+    <div class="manifesto">
+      <div class="manifesto-text">
+        <span class="eyebrow">Presentación</span>
+        <h2>UNA SOLA INGENIERÍA. <em>UN SOLO PERÚ.</em></h2>
+        <p class="sub">Construyendo las soluciones que el país necesita.</p>
+        <p>El Perú necesita una ingeniería capaz de trascender las especialidades para integrar conocimiento, innovación y liderazgo al servicio de los grandes desafíos nacionales. Porque el futuro del país no depende únicamente de sus recursos, sino de la capacidad de transformarlos en infraestructura, desarrollo, competitividad, bienestar y oportunidades para todos los peruanos. Esa es la misión de la ingeniería.</p>
+        <p>Con esa visión nace el I Congreso Nacional de Ingeniería: la gran plataforma de articulación donde convergen el Estado, la empresa, la academia y los profesionales que impulsan las soluciones que el Perú necesita para crecer con una mirada estratégica, sostenible y de largo plazo. Más que un congreso, será el punto de encuentro de quienes diseñan, construyen y construyen el futuro del Perú. Porque los grandes desafíos del Perú no requieren soluciones aisladas; requieren una ingeniería que piense en conjunto, actúe con visión y construya el país que viene.</p>
+      </div>
+      <div class="manifesto-photo">
+        <img src="assets/img/photo-comite.jpg" alt="Profesionales de la ingeniería revisando planos">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" style="justify-content:center">7 ejes temáticos</span>
+      <h2>La agenda técnica del Congreso</h2>
+      <p>Siete ejes que articulan Estado, empresa, academia y sociedad civil frente a los grandes desafíos del Perú.</p>
+    </div>
+    <div class="ejes-grid">
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">1</span>
+            <h3>Minería, Recursos y Transición Energética</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">2</span>
+            <h3>Agua, Energía y Seguridad Climática</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">3</span>
+            <h3>Infraestructura, Territorio y Ciudades Sostenibles</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">4</span>
+            <h3>Transformación Digital, Industria 4.0 e Ingeniería de Datos</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">5</span>
+            <h3>Productividad, Industria y Competitividad Nacional</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">6</span>
+            <h3>Educación, Talento y Futuro de la Ingeniería</h3>
+          </div>
+        </div>
+      </div>
+      <div class="eje-card compact">
+        <div class="eje-card-inner">
+          <div class="eje-face eje-front">
+            <span class="eje-num">7</span>
+            <h3>Gobernanza Técnica, Ética y Agenda País</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="ejes-note"><a href="ejes-tematicos.html" class="btn btn-outline-navy">Ver el detalle de los 7 ejes →</a></p>
+  </div>
+</section>
+
+<section class="bg-gray">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Servicios al participante</span>
+      <h2>Participar es integrarse a una comunidad</h2>
+    </div>
+    <div class="services-grid">
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:16px;">Acceso académico</h3>
+        <ul class="service-list">
+          <li><span class="check">✓</span>Ingreso a todas las conferencias magistrales y sesiones técnicas del programa científico. Acceso a sesiones paralelas especializadas.</li>
+          <li><span class="check">✓</span>Participación en mesas de debate y paneles técnicos.</li>
+          <li><span class="check">✓</span>Acceso a la zona de posters científicos.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:16px;">Material y contenidos</h3>
+        <ul class="service-list">
+          <li><span class="check">✓</span>Credencial oficial del congreso.</li>
+          <li><span class="check">✓</span>Kit del participante: mochila, block, lapicero, programa del evento.</li>
+          <li><span class="check">✓</span>Acceso a presentaciones autorizadas por los expositores (al término del evento).</li>
+          <li><span class="check">✓</span>Acceso posterior a las grabaciones de las sesiones (según disponibilidad).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="closing-quote">
+      "Participar no es solo asistir. Es integrarse a una comunidad que conecta conocimiento, impulsa la innovación, fortalece alianzas estratégicas y promueve soluciones con impacto real para el desarrollo del país."
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h3>Sé protagonista del I Congreso Nacional de Ingeniería</h3>
+        <p>Asegura tu participación desde esta etapa inicial. Muy pronto anunciaremos tarifas y beneficios.</p>
+      </div>
+      <a href="inscripcion.html" class="btn btn-gold">Quiero inscribirme</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="mark-badge"><img src="assets/img/logo-conacip.png" alt="I Congreso Nacional de Ingeniería"></span>
+          <img src="assets/img/logo-cip-seal.png" alt="Colegio de Ingenieros del Perú" class="seal">
+        </div>
+        <p>Organiza: Colegio de Ingenieros del Perú — Consejo Nacional. Del 05 al 09 de julio de 2027, Lima, Peru</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook (próximamente)" title="Próximamente">f</a>
+          <a href="#" aria-label="Instagram (próximamente)" title="Próximamente">ig</a>
+          <a href="#" aria-label="LinkedIn (próximamente)" title="Próximamente">in</a>
+          <a href="#" aria-label="TikTok (próximamente)" title="Próximamente">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="ejes-tematicos.html">Ejes temáticos</a></li>
+          <li><a href="comite-organizador.html">Comité organizador</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Participa</h4>
+        <ul>
+          <li><a href="inscripcion.html">Inscripción</a></li>
+          <li><a href="exhibicion.html">Exhibición técnica</a></li>
+          <li><a href="patrocinio.html">Patrocinio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.cip.org.pe" target="_blank" rel="noopener">www.cip.org.pe</a></li>
+          <li>Colegio de Ingenieros del Perú</li>
+          <li>Consejo Nacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2027 Colegio de Ingenieros del Perú — Consejo Nacional.</span>
+      <span>I Congreso Nacional de Ingeniería</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

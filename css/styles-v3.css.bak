@@ -1,0 +1,243 @@
+/* ==========================================================================
+   PROPUESTA V3 — colores y estilos de index.html + distribución de index-v2.html
+   Capa de overrides. Se carga DESPUÉS de css/styles.css.
+   Todo está bajo `body.v3` para no afectar a las demás versiones.
+   ========================================================================== */
+
+/* Cabecera azul (v1) con doble marca: logo del evento + sello CIP ----------- */
+
+body.v3 .site-header .container { gap: 26px; }
+/* El menú arranca junto al logo; el botón queda anclado a la derecha */
+body.v3 .nav { flex: 1; justify-content: flex-start; }
+body.v3 .nav .nav-cta { margin-left: auto; }
+
+body.v3 .brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+/* El logo CONACIP tiene tinta oscura: va sobre placa blanca en el azul */
+body.v3 .brand-lockup .plate {
+  display: inline-flex;
+  background: #fff;
+  padding: 6px 11px;
+  border-radius: var(--radius-sm);
+}
+body.v3 .brand-lockup .plate img { height: 34px; width: auto; }
+body.v3 .brand-lockup .rule { width: 1px; height: 42px; background: rgba(255, 255, 255, 0.22); flex-shrink: 0; }
+body.v3 .brand-lockup .seal { height: 40px; width: auto; }
+
+/* Hero: fondo y colores de v1, distribución de v2 -------------------------- */
+
+body.v3 .hero-v3 {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: #fff;
+  background-image: linear-gradient(180deg, rgba(8, 23, 44, 0.7) 0%, rgba(8, 23, 44, 0.86) 55%, rgba(8, 23, 44, 0.97) 100%),
+    url("../assets/img/photo-hero-costaverde.jpg");
+  background-size: cover;
+  background-position: center 30%;
+}
+/* Sello CIP como marca de agua */
+body.v3 .hero-v3::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -110px;
+  width: 640px;
+  height: 640px;
+  transform: translateY(-50%);
+  background: url("../assets/img/logo-cip-seal.png") no-repeat center / contain;
+  opacity: 0.09;
+  pointer-events: none;
+}
+/* Velo lateral para asegurar legibilidad del texto */
+body.v3 .hero-v3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 23, 44, 0.82) 0%, rgba(8, 23, 44, 0.4) 48%, rgba(8, 23, 44, 0) 74%);
+  pointer-events: none;
+}
+body.v3 .hero-v3 .container { position: relative; z-index: 1; }
+
+body.v3 .hero-v3-grid {
+  display: grid;
+  grid-template-columns: 1.14fr 0.86fr;
+  gap: 52px;
+  align-items: center;
+  padding: 60px 0 66px;
+}
+
+body.v3 .hero-v3 .kicker {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin: 0 0 4px;
+}
+body.v3 .hero-v3 h1 {
+  color: #fff;
+  font-size: clamp(1.95rem, 4.4vw, 3.3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+
+/* Chips de fecha y sede (distribución de v2, tono azul de v1) */
+body.v3 .hero-v3-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 0 0 26px;
+}
+body.v3 .chip-v3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  padding: 8px 24px 8px 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(8, 23, 44, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  backdrop-filter: blur(3px);
+}
+body.v3 .chip-v3 .ic {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--gold-500);
+  color: var(--navy-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.v3 .chip-v3 .lbl {
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-right: 4px;
+}
+
+/* Lema del congreso */
+body.v3 .hero-v3-tagline {
+  max-width: 580px;
+  margin: 0 0 30px;
+  padding: 4px 0 4px 18px;
+  border-left: 4px solid var(--gold-500);
+  font-family: var(--font-head);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.7vw, 1.16rem);
+  color: #fff;
+}
+
+body.v3 .hero-v3 .countdown { margin-top: 34px; }
+
+/* Panel visual derecho: foto enmarcada + sello */
+body.v3 .hero-v3-visual {
+  position: relative;
+  padding: 0 22px 22px 0;
+}
+body.v3 .hero-v3-visual .accent {
+  position: absolute;
+  top: 26px;
+  right: 0;
+  bottom: 0;
+  left: 26px;
+  border: 3px solid var(--gold-500);
+  border-radius: var(--radius-lg);
+}
+body.v3 .hero-v3-visual .frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
+}
+body.v3 .hero-v3-visual .frame img {
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  object-fit: cover;
+  object-position: center 20%;
+}
+/* Franja "Organiza" bajo el hero, con ambas marcas ------------------------- */
+
+body.v3 .organiza-strip {
+  background: var(--white);
+  border-top: 3px solid var(--gold-500);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 16px 0;
+}
+body.v3 .organiza-strip .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+body.v3 .organiza-strip .marks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  border-right: 1px solid var(--gray-300);
+}
+body.v3 .organiza-strip .logo-event { height: 34px; width: auto; }
+body.v3 .organiza-strip .seal { height: 42px; width: auto; }
+body.v3 .organiza-strip p {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+body.v3 .organiza-strip p strong { color: var(--red-700); }
+body.v3 .organiza-strip a { color: var(--navy-800); text-decoration: underline; text-underline-offset: 3px; }
+body.v3 .organiza-strip a:hover { color: var(--red-700); }
+
+/* Footer con doble marca --------------------------------------------------- */
+
+body.v3 .footer-brand .mark-badge img { height: 36px; }
+
+/* Responsive --------------------------------------------------------------- */
+
+@media (max-width: 980px) {
+  /* En el menú desplegable móvil el botón vuelve a su sitio */
+  body.v3 .nav .nav-cta { margin: 12px 0 0; }
+
+  body.v3 .hero-v3-grid { grid-template-columns: 1fr; gap: 40px; padding: 48px 0 56px; }
+  body.v3 .hero-v3::after {
+    background: linear-gradient(180deg, rgba(8, 23, 44, 0.72) 0%, rgba(8, 23, 44, 0.45) 100%);
+  }
+  body.v3 .hero-v3-visual { max-width: 460px; padding: 0 18px 18px 0; }
+  body.v3 .hero-v3-visual .frame img { aspect-ratio: 4 / 3.2; }
+}
+
+@media (max-width: 640px) {
+  body.v3 .brand-lockup { gap: 12px; }
+  body.v3 .brand-lockup .plate img { height: 28px; }
+  body.v3 .brand-lockup .rule { height: 34px; }
+  body.v3 .brand-lockup .seal { height: 32px; }
+  body.v3 .hero-v3::before { width: 420px; left: -140px; opacity: 0.08; }
+  body.v3 .chip-v3 { font-size: 0.82rem; padding: 8px 16px 8px 8px; }
+  body.v3 .organiza-strip .container { gap: 12px; }
+  body.v3 .organiza-strip .marks { border-right: none; padding-right: 0; gap: 16px; }
+}
