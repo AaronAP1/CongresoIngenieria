@@ -91,6 +91,13 @@
       d + "</svg></span>";
   }
 
+  /* Foto del eje en la cuna diagonal del hero. Va en lugar del motivo:
+     los dos juntos se estorban. */
+  function fotoHero(ruta) {
+    return '<span class="eje-hero-foto" aria-hidden="true" ' +
+      "style=\"background-image:url('" + esc(ruta) + "')\"></span>";
+  }
+
   function svg(clave) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
       'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -172,7 +179,7 @@
         "<h1>" + esc(eje.titulo) + "</h1>" +
         '<p class="eje-hero-sub">' + esc(eje.resultado) + "</p>" +
       "</div>" +
-      motivo(eje.num);
+      (eje.foto ? fotoHero(eje.foto) : motivo(eje.num));
 
     /* Columna principal */
     var main = "";
@@ -208,15 +215,8 @@
     /* Columna lateral */
     var aside = "";
 
-    aside += '<div class="eje-card-side">' +
-      "<h3>Metas orientadoras</h3>" +
-      (d.metas && d.metas.length
-        ? '<ul class="eje-metas">' + d.metas.map(function (m) {
-            return "<li><span>" + esc(m.anio) + "</span><p>" + esc(m.texto) + "</p></li>";
-          }).join("") + "</ul>"
-        : bloquePendiente("Por definir por el Comité Organizador.")) +
-      "</div>";
-
+    /* Las metas orientadoras siguen en ejes-data.js pero no se muestran:
+       el Comité las retiró de la ficha. */
     aside += '<div class="eje-card-side">' +
       "<h3>Indicadores clave</h3>" +
       (d.indicadores && d.indicadores.length
@@ -231,10 +231,9 @@
         "<h3>Declaración del Congreso</h3><p>" + esc(d.declaracion) + "</p></div>";
     }
 
-    aside += d.ficha
-      ? '<a class="btn btn-primary btn-block" href="' + esc(d.ficha) + '" download>Descargar ficha del eje</a>'
-      : '<span class="btn btn-primary btn-block is-disabled" aria-disabled="true" ' +
-        'title="La ficha de este eje estará disponible próximamente">Ficha del eje — próximamente</span>';
+    if (d.ficha) {
+      aside += '<a class="btn btn-primary btn-block" href="' + esc(d.ficha) + '" download>Descargar ficha del eje</a>';
+    }
 
     document.getElementById("eje-aside").innerHTML = aside;
 

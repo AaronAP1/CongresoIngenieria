@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exhibición Técnica y Área Comercial — I Congreso Nacional de Ingeniería 2027</title>
-<meta name="description" content="Exhibición técnica y área comercial del I Congreso Nacional de Ingeniería: hasta 105 stands de 3×2 m en 1,824 m² de carpa, auditorio y sala de prensa. Conecta con decisores técnicos y genera oportunidades comerciales reales.">
+<meta name="description" content="Exhibición técnica y área comercial del I Congreso Nacional de Ingeniería en la Universidad Nacional Agraria La Molina. Conecta con decisores técnicos y genera oportunidades comerciales reales.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
   <div class="container">
     <span class="eyebrow">Para empresas exhibidoras</span>
     <h1>Exhibición Técnica y Área Comercial</h1>
-    <p>Hasta 105 stands de 3 × 2 m en una carpa de 1,824 m², con auditorio y sala de prensa, en el Cuartel General del Ejército del Perú.</p>
+    <p>Un espacio para conectar empresas, tecnología y conocimiento en la Universidad Nacional Agraria La Molina.</p>
     <p class="crumb"><a href="index.html">Inicio</a> / Exhibición</p>
   </div>
 </div>
@@ -70,17 +70,16 @@
 
 <!-- ==========================================================================
      PLANO DE EXHIBICIÓN
-     La planta (escenario, salas, servicios y pórticos) está escrita aquí.
-     Los módulos los dibuja js/plano.js dentro de cada [data-banda], leyendo
-     js/plano-data.js. Para cambiar quién ocupa un stand se edita ESE archivo,
-     no este.
+     Todo el plano (recinto, módulos y servicios) lo dibuja js/plano.js
+     dentro de #plano-recinto, leyendo js/plano-data.js. Para cambiar quién
+     ocupa un stand se edita ESE archivo, no este.
      ========================================================================== -->
 <section id="plano" class="plano-seccion">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Plano de planta</span>
       <h2>Elija su módulo en el área de exhibición</h2>
-      <p>105 stands modulares y 7 salas de exposición por capítulo, distribuidos en la carpa de 1,824 m². Pulse cualquier módulo para ver su situación, medidas y ubicación.</p>
+      <p>52 módulos de exhibición, con unos 520 m² de stands en total. Pulse cualquier módulo para ver su situación, medidas y ubicación.</p>
     </div>
 
     <div class="plano-barra">
@@ -99,15 +98,15 @@
           <button type="button" data-filtro-estado="ocupado" aria-pressed="false">Ocupados</button>
         </div>
         <label class="plano-select">
-          <span>Zona</span>
+          <span>Tipo</span>
           <select id="plano-zona">
-            <option value="todas">Todas las zonas</option>
-            <option value="A">A · Preferenciales</option>
-            <option value="B">B · Esquineros</option>
-            <option value="C">C · Internos</option>
-            <option value="D">D · Innovación y startups</option>
-            <option value="E">E · Islas corporativas</option>
-            <option value="S">S · Salas de exposición</option>
+            <option value="todas">Todos los tipos</option>
+            <option value="A">A · Stands 3 × 2 m</option>
+            <option value="B">B · Stands 4 × 3 m</option>
+            <option value="C">C · Stands 9 × 2 m</option>
+            <option value="E">E · Islas 10 × 6 m</option>
+            <option value="F">F · Stands 2 × 2 m</option>
+            <option value="M">01–04 · Módulos 4 × 2 m</option>
           </select>
         </label>
       </div>
@@ -118,70 +117,8 @@
         <p class="plano-scroll-aviso">Desplace el plano de lado para verlo completo.</p>
 
         <div class="plano-mapa" id="plano-mapa">
-
-          <!-- Franja superior: maquinaria en exhibición, sala VIP y escenario -->
-          <div class="plano-superior">
-            <div class="plano-servicio zona-demo">Demostración de maquinaria</div>
-            <div class="plano-servicio zona-vip">Sala VIP</div>
-            <div class="plano-servicio zona-escenario">Escenario y auditorio</div>
-          </div>
-
-          <div class="plano-cuerpo">
-            <!-- Servicios del lado izquierdo -->
-            <div class="plano-lateral">
-              <div class="plano-servicio zona-ss">SS. HH.</div>
-              <div class="plano-servicio zona-entrevistas">Área de entrevistas</div>
-              <div class="plano-servicio zona-prensa">Sala de prensa</div>
-              <div class="plano-servicio zona-food">Zona food trucks</div>
-            </div>
-
-            <!-- Bandas de módulos: las rellena js/plano.js -->
-            <div class="plano-filas">
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">A · Preferenciales</span>
-                <div class="plano-banda cols-14" data-banda="A"></div>
-              </div>
-
-              <div class="plano-pasillo">Pasillo principal</div>
-
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">B · Esquineros</span>
-                <div class="plano-banda cols-14" data-banda="B1"></div>
-                <div class="plano-banda cols-14" data-banda="B2"></div>
-              </div>
-
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">C · Internos</span>
-                <div class="plano-banda cols-14" data-banda="C1"></div>
-                <div class="plano-banda cols-14" data-banda="C2"></div>
-              </div>
-
-              <div class="plano-pasillo">Coffee break · circulación</div>
-
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">S · Salas de exposición por capítulo</span>
-                <div class="plano-banda cols-7 banda-salas" data-banda="S"></div>
-              </div>
-
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">D · Innovación y startups</span>
-                <div class="plano-banda cols-7" data-banda="D1"></div>
-                <div class="plano-banda cols-7" data-banda="D2"></div>
-                <div class="plano-banda cols-7" data-banda="D3"></div>
-              </div>
-
-              <div class="plano-fila">
-                <span class="plano-fila-rotulo">E · Islas corporativas</span>
-                <div class="plano-banda cols-7 banda-islas" data-banda="E1"></div>
-                <div class="plano-banda cols-7 banda-islas" data-banda="E2"></div>
-              </div>
-            </div>
-
-            <!-- Ingreso lateral -->
-            <div class="plano-servicio zona-portico portico-lado">Pórtico 02</div>
-          </div>
-
-          <div class="plano-servicio zona-portico portico-pie">Pórtico principal · Ingreso</div>
+          <!-- Recinto a escala: lo rellena js/plano.js -->
+          <div class="plano-recinto" id="plano-recinto"></div>
         </div>
 
         <p class="plano-visibles" data-visibles aria-live="polite"></p>
@@ -272,6 +209,9 @@
   </div>
 </section>
 
+<!-- CAPACIDAD DE LA EXHIBICIÓN: oculta por pedido del Comité hasta tener
+     las cifras de la nueva sede. Para volver a mostrarla, quitar el
+     comentario y actualizar los datos.
 <section class="bg-gray">
   <div class="container">
     <div class="section-head center">
@@ -294,8 +234,9 @@
     </div>
   </div>
 </section>
+-->
 
-<section>
+<section class="bg-gray">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Ficha técnica</span>
@@ -311,9 +252,8 @@
           <h3>Bosquejo preliminar</h3>
         </div>
         <ul class="checklist">
-          <li><span class="dot"></span>Toldo / carpa de 1,824 m² (57 × 32 m).</li>
-          <li><span class="dot"></span>Estructura Layher en caída, tipo a dos aguas con cobertor.</li>
-          <li><span class="dot"></span>Tapizón gris acanalado en todo el piso.</li>
+          <li><span class="dot"></span>Tarima y toldo: área total de stands de 520 m².</li>
+          <li><span class="dot"></span>Tapizón gris acanalado en cada stand.</li>
         </ul>
       </div>
 
@@ -322,13 +262,10 @@
           <span class="tick" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           </span>
-          <h3>Modulación preliminar del stand</h3>
+          <h3>Sala Plenaria</h3>
         </div>
         <ul class="checklist">
-          <li><span class="dot"></span>El área permite hasta 105 stands de 3 × 2 m.</li>
-          <li><span class="dot"></span>Estructurado en sistema Octanorm / Alusett.</li>
-          <li><span class="dot"></span>Panelería en melamina blanca con friso.</li>
-          <li><span class="dot"></span>Mobiliario básico: una mesa baja y dos sillas bajas negras.</li>
+          <li><span class="dot"></span>Capacidad para 400 personas.</li>
         </ul>
       </div>
 
@@ -337,17 +274,11 @@
           <span class="tick" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           </span>
-          <h3>Auditorio</h3>
+          <h3>Sala Técnica 1</h3>
         </div>
         <ul class="checklist">
-          <li><span class="dot"></span>Capacidad para 84 personas (sugerido).</li>
-          <li><span class="dot"></span>Área promedio de 13 × 10 m.</li>
-          <li><span class="dot"></span>Estructura Octanorm / Alusett, perímetro a 5 m de altura.</li>
-          <li><span class="dot"></span>Tarima de 6 × 3 × 0.60 m forrada en tapizón gris.</li>
-          <li><span class="dot"></span>Iluminación interior con 18 reflectores.</li>
-          <li><span class="dot"></span>Podio de Alusett y 84 sillas bajas negras.</li>
+          <li><span class="dot"></span>Capacidad para 160 personas.</li>
         </ul>
-        <p class="spec-note">Replicable o ampliable según requerimiento.</p>
       </div>
 
       <div class="spec-card accent-red">
@@ -355,86 +286,12 @@
           <span class="tick" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           </span>
-          <h3>Sala de prensa</h3>
+          <h3>Salas Técnicas 2 y 3</h3>
         </div>
         <ul class="checklist">
-          <li><span class="dot"></span>Capacidad para 43 personas (sugerido).</li>
-          <li><span class="dot"></span>Área promedio de 7 × 10 m.</li>
-          <li><span class="dot"></span>Estructura Octanorm / Alusett, perímetro de 70 m a 2.50 m de altura.</li>
-          <li><span class="dot"></span>Iluminación interior con 12 reflectores.</li>
-          <li><span class="dot"></span>Mobiliario por establecer.</li>
+          <li><span class="dot"></span>Capacidad para 40 personas cada una.</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-gray">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Para su equipo de diseño</span>
-      <h2>Medidas de gráfica del stand</h2>
-      <p>Medida interna del stand de 3 × 2 m: <strong>2.93 m de ancho por 1.98 m de profundidad</strong>. Estas son las áreas útiles para aplicar gráfica.</p>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Zona</th>
-            <th>Ubicación</th>
-            <th>Alto (H)</th>
-            <th>Ancho (A)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>A</strong></td>
-            <td>Paneles laterales y de fondo</td>
-            <td>2.38 m</td>
-            <td>0.95 m</td>
-          </tr>
-          <tr>
-            <td><strong>B</strong></td>
-            <td>Friso frontal (rótulo del stand)</td>
-            <td>0.20 m</td>
-            <td>2.07 m</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="note-box" style="margin-top:26px;">
-      <h4>Antes de enviar sus archivos</h4>
-      <p>Para el uso de gráficas, deje <strong>1 cm de demasía a cada lado</strong> de cada pieza. El friso frontal lleva el nombre de la empresa exhibidora.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <!-- ====================================================================
-         SOLICITUD DE INFORMACION DE EXHIBICION
-         El envio ocurre dentro del iframe: el visitante no sale del sitio.
-         Para cambiar de formulario, reemplaza data-gform-src por la URL que
-         da Google Forms en: Enviar -> pestana < >, con ?embedded=true al final.
-         ==================================================================== -->
-    <div class="contact-card contact-card--form">
-      <div class="form-head">
-        <h3>Solicita información de exhibición</h3>
-        <p>Estamos definiendo la tabla de tarifas por categoría de stand. Déjanos tus datos y te escribimos en cuanto se publique.</p>
-      </div>
-      <div class="gform-embed tiene-form" data-gform data-gform-src="https://docs.google.com/forms/d/e/1FAIpQLSfatgPwNHyBYIOp2eo6RQeC9KsjpQaSXhjE1wAlRCxHZxBZgw/viewform?embedded=true">
-        <div class="gform-skeleton">
-          <span class="spinner" aria-hidden="true"></span>
-          <span>Cargando formulario…</span>
-        </div>
-      </div>
-      <p class="form-note">Tus datos se envían desde esta misma página, sin salir del sitio.</p>
-    </div>
-
-    <div class="note-box" style="margin-top:32px;">
-      <h4>Condiciones de pago</h4>
-      <p>Las tarifas <strong>no incluyen IGV</strong>.</p>
-      <p>Para pagos realizados desde el extranjero, las comisiones bancarias asociadas a la transferencia deberán ser asumidas por la empresa participante, incluyendo cualquier cargo aplicado por el banco emisor, bancos intermediarios o el banco receptor. Agradeceremos gestionar la operación bajo <strong>modalidad OUR</strong> (gastos a cargo del ordenante), de modo que el importe neto acreditado corresponda íntegramente al monto total facturado, sin deducciones.</p>
     </div>
   </div>
 </section>
@@ -446,7 +303,7 @@
         <h3>Reserve su espacio en la exhibición técnica</h3>
         <p>Escríbanos para recibir el brochure comercial y coordinar la disponibilidad de stands.</p>
       </div>
-      <a href="contacto.html" class="btn btn-gold">Contactar al equipo comercial</a>
+      <a href="contacto.html" class="btn btn-gold" data-whatsapp="Hola, quisiera información para participar como exhibidor en el I Congreso Nacional de Ingeniería.">Contactar al equipo comercial</a>
     </div>
   </div>
 </section>

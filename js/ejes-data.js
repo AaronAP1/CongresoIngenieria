@@ -12,6 +12,8 @@
      titulo     Nombre del eje.
      resultado  Resultado estratégico. Sale en la tarjeta y en el hero.
      icono      Clave del ícono (ver ICONOS en js/ejes.js).
+     foto       Foto del hero de la ficha. Sin valor, el hero muestra el
+                motivo gráfico del eje en su lugar.
      detalle    Bloques de la ficha. Si un bloque falta o va vacío,
                 la ficha muestra el estado "en preparación" en su lugar.
                   objetivo     Objetivo estratégico (texto).
@@ -20,9 +22,11 @@
                   desafio      El desafío del Perú (texto).
                   declaracion  Declaración del Congreso (texto).
                   metas        [{ anio, texto }]  — horizontes 2035 y 2050.
+                               Por ahora NO se muestran en la ficha: el
+                               Comité las retiró. Se conservan aquí.
                   indicadores  [texto]            — tres por eje.
-                  ficha        Ruta al PDF de la ficha. Sin valor, el botón
-                               queda deshabilitado como "próximamente".
+                  ficha        Ruta al PDF de la ficha. Sin valor, no se
+                               muestra el botón de descarga.
 
    PROCEDENCIA DEL CONTENIDO
      · objetivo, prioridad, alcance, desafío y declaración salen textuales
@@ -38,6 +42,7 @@ window.EJES = [
     titulo: "Infraestructura nacional y megaproyectos",
     resultado: "Conectividad, logística, infraestructura social y resiliencia.",
     icono: "puente",
+    foto: "assets/img/eje-01-infraestructura.jpg",
     detalle: {
       objetivo: "Construir una red de infraestructura moderna, integrada, resiliente y competitiva que reduzca brechas, conecte territorios y soporte el crecimiento económico y social del Perú.",
       prioridad: "Institucionalizar una cartera multigobierno de infraestructura y megaproyectos con ingeniería madura antes de licitar, gestión digital de activos y disciplina de costo, plazo, calidad y mantenimiento.",
@@ -68,6 +73,7 @@ window.EJES = [
     titulo: "Recursos naturales sostenibles",
     resultado: "Geociencias, minería, hidrocarburos, recursos marinos y bioeconomía con valor agregado.",
     icono: "mineral",
+    foto: "assets/img/eje-02-recursos.jpg",
     detalle: {
       objetivo: "Transformar la riqueza minera, energética, marina, forestal y biológica del Perú en desarrollo sostenible, conocimiento, tecnología, cadenas de valor y capacidades industriales.",
       prioridad: "Convertir geociencias, exploración, recursos naturales e ingeniería de procesos en una plataforma de industrialización, proveedores tecnológicos, exportación de servicios y desarrollo territorial sostenible.",
@@ -128,6 +134,7 @@ window.EJES = [
     titulo: "Agricultura, zootecnia y forestales",
     resultado: "Productividad, tecnificación, cadena de frío, agroindustria y bioeconomía.",
     icono: "agro",
+    foto: "assets/img/eje-04-agro.jpg",
     detalle: {
       objetivo: "Elevar productividad, resiliencia y valor agregado del agro, la ganadería y los recursos forestales mediante ingeniería, tecnificación, biotecnología, logística e industrialización.",
       prioridad: "Articular agua, mecanización, agricultura de precisión, cadena de frío, agroindustria, genética y bioeconomía para elevar productividad y valor agregado regional.",
@@ -157,6 +164,7 @@ window.EJES = [
     titulo: "Energía y transición energética",
     resultado: "Seguridad, competitividad, redes, diversificación y tecnologías avanzadas.",
     icono: "energia",
+    foto: "assets/img/eje-05-energia.jpg",
     detalle: {
       objetivo: "Garantizar energía segura, competitiva, diversificada y sostenible para hogares, industria, minería, transporte y transformación digital.",
       prioridad: "Planificar seguridad energética e industrialización conjuntamente, reforzando redes, capacidad firme, almacenamiento, eficiencia, diversificación tecnológica y formación especializada.",
@@ -186,6 +194,7 @@ window.EJES = [
     titulo: "Industrialización y manufactura",
     resultado: "Metalmecánica, procesos, proveedores, clusters y manufactura avanzada.",
     icono: "fabrica",
+    foto: "assets/img/eje-06-industria.jpg",
     detalle: {
       objetivo: "Transformar recursos y capacidades nacionales en productos, equipos, materiales y servicios de mayor valor agregado, creando empleo técnico y empresas competitivas.",
       prioridad: "Seleccionar cadenas con ventajas nacionales y construir clusters, proveedores, metrología, certificación, automatización y capacidad exportadora de ingeniería y manufactura.",
@@ -216,6 +225,7 @@ window.EJES = [
     titulo: "IA, chips, software y ciencia de datos",
     resultado: "Capacidad digital nacional, automatización, software, datos y semiconductores.",
     icono: "chip",
+    foto: "assets/img/eje-07-ia.jpg",
     detalle: {
       objetivo: "Desarrollar capacidades digitales soberanas y competitivas que eleven productividad, seguridad y capacidad de innovación del Estado y del sector productivo.",
       prioridad: "Desarrollar soberanía de capacidades digitales —software, datos, IA, automatización y conocimiento de semiconductores— aplicada a Estado, industria, infraestructura y recursos naturales.",
@@ -246,6 +256,7 @@ window.EJES = [
     titulo: "Ingeniería del futuro",
     resultado: "Robótica, automatización, materiales, aeroespacial, biotecnología y nuevas fronteras.",
     icono: "cohete",
+    foto: "assets/img/eje-08-futuro.jpg",
     detalle: {
       objetivo: "Preparar al Perú para tecnologías y sectores que definirán la competitividad, seguridad y productividad de las próximas décadas.",
       prioridad: "Crear programas nacionales de ingeniería avanzada que conecten universidades, centros de investigación, empresas y grandes proyectos con nuevas tecnologías y mercados.",
@@ -278,6 +289,7 @@ window.EJES = [
     titulo: "Talento, educación, ciencia e investigación",
     resultado: "Ingenieros, técnicos, investigadores, I+D y formación vinculada a sectores productivos.",
     icono: "birrete",
+    foto: "assets/img/eje-09-talento.jpg",
     detalle: {
       objetivo: "Formar ingenieros, técnicos, científicos, investigadores y empresarios capaces de liderar proyectos complejos, innovación y transformación productiva al 2050.",
       prioridad: "Alinear formación técnica y universitaria, investigación aplicada y aprendizaje permanente con las capacidades que demandarán los 12 ejes de la Agenda 2027–2050.",
@@ -308,6 +320,7 @@ window.EJES = [
     titulo: "Regionalización y descentralización",
     resultado: "Capacidades territoriales, polos productivos e infraestructura regional.",
     icono: "mapa",
+    foto: "assets/img/eje-10-regiones.jpg",
     detalle: {
       objetivo: "Usar la ingeniería para cerrar brechas territoriales y desarrollar capacidades productivas, tecnológicas e institucionales en todas las regiones del Perú.",
       prioridad: "Convertir la descentralización en capacidades de ejecución regional, con ingeniería, cartera de proyectos, polos productivos, infraestructura y talento en territorio.",
@@ -337,6 +350,7 @@ window.EJES = [
     titulo: "Inversión en ingeniería e infraestructura",
     resultado: "Financiamiento, maduración de proyectos, APP y continuidad de cartera.",
     icono: "inversion",
+    foto: "assets/img/eje-11-inversion.jpg",
     detalle: {
       objetivo: "Mejorar la calidad, oportunidad y eficiencia de la inversión pública y privada, asegurando que los proyectos se sustenten en ingeniería suficiente antes de comprometer grandes recursos.",
       prioridad: "Asegurar que la inversión llegue a proyectos maduros, priorizados y financiables, con mecanismos diversos y continuidad de cartera más allá de cada periodo de gobierno.",
@@ -366,6 +380,7 @@ window.EJES = [
     titulo: "Contratos, cumplimiento legal y gobernanza",
     resultado: "Asignación de riesgos, control integrado de proyectos, integridad y prevención de controversias.",
     icono: "balanza",
+    foto: "assets/img/eje-12-gobernanza.jpg",
     detalle: {
       objetivo: "Fortalecer el marco contractual, regulatorio y de gobernanza para ejecutar proyectos con seguridad jurídica, transparencia, adecuada asignación de riesgos y solución oportuna de controversias.",
       prioridad: "Profesionalizar la estrategia contractual, asignación de riesgos, control integrado de proyectos, trazabilidad de cambios, cumplimiento e integridad para reducir controversias y elevar predictibilidad.",

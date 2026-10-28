@@ -1,17 +1,17 @@
 /* ==========================================================================
    PLANO DE EXHIBICIÓN — dibujo e interacción
    --------------------------------------------------------------------------
-   Lee js/plano-data.js y rellena el plano de exhibicion.html:
+   Lee js/plano-data.js y dibuja el plano de exhibicion.html:
 
-     · reparte los 105 stands en sus bandas (A, B, C, D, E),
-     · pinta cada uno según su estado (disponible / reservado / ocupado),
+     · traza el contorno del recinto y el pórtico de ingreso,
+     · ubica cada módulo y cada servicio a escala, en metros,
+     · pinta cada módulo según su estado (disponible / reservado / ocupado),
      · cuenta cuántos hay de cada estado para la leyenda,
-     · filtra por estado y por zona,
+     · filtra por estado y por tipo,
      · al pulsar un módulo muestra su ficha al costado.
 
-   El plano no se toca desde aquí: la planta (escenario, salas, pórticos,
-   servicios) está escrita en el HTML. Este archivo solo llena las bandas
-   que llevan data-banda.
+   Las posiciones van en porcentaje del recinto: el plano se estira con el
+   ancho disponible sin deformarse, porque el recinto guarda su proporción.
    ========================================================================== */
 
 (function () {
@@ -19,6 +19,8 @@
 
   var PLANO = window.PLANO;
   if (!PLANO) return;
+
+  var R = PLANO.recinto;
 
   var ESTADOS = {
     disponible: "Disponible",
@@ -32,26 +34,31 @@
       .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 
-  /* El número del código decide la banda: la fila B tiene 28 módulos
-     repartidos en dos bandas de 14, la D tiene tres de 7, etc. */
-  function banda(letra, n) {
-    if (letra === "A") return "A";
-    if (letra === "B" || letra === "C") return letra + (n <= 14 ? "2" : "1");
-    if (letra === "D") return "D" + (n <= 7 ? "1" : n <= 14 ? "2" : "3");
-    if (letra === "E") return "E" + (n <= 7 ? "1" : "2");
-    return letra;
+  /* Los módulos 01 a 04 no llevan letra en el plano: son del tipo M */
+  function letraDe(codigo) {
+    var l = codigo.charAt(0);
+    return PLANO.tipos[l] ? l : "M";
+  }
+
+  /* [x, y, ancho, alto] en metros → posición en % del recinto. El hueco
+     de 2 px a cada lado separa los módulos que van pegados. */
+  function posicion(sitio, hueco) {
+    var h = hueco || 0;
+    return "left:calc(" + (sitio[0] / R.ancho * 100) + "% + " + h + "px);" +
+      "top:calc(" + (sitio[1] / R.alto * 100) + "% + " + h + "px);" +
+      "width:calc(" + (sitio[2] / R.ancho * 100) + "% - " + 2 * h + "px);" +
+      "height:calc(" + (sitio[3] / R.alto * 100) + "% - " + 2 * h + "px);";
   }
 
   /* Convierte las filas compactas del archivo de datos en objetos */
-  var MODULOS = PLANO.modulos.map(function (m) {
+  var TODOS = PLANO.modulos.map(function (m) {
     var codigo = m[0];
-    var letra = codigo.charAt(0);
-    var n = parseInt(codigo.split("-")[1], 10);
+    var letra = letraDe(codigo);
     var tipo = PLANO.tipos[letra] || {};
     return {
       codigo: codigo,
       letra: letra,
-      banda: banda(letra, n),
+      sitio: PLANO.ubicaciones[codigo],
       estado: m[1],
       empresa: m[2] || "",
       rubro: m[3] || "",
@@ -59,43 +66,30 @@
       medida: tipo.medida || "",
       zona: tipo.zona || ""
     };
+  }).filter(function (m) {
+    /* Un código sin ubicación no se puede dibujar: se avisa y se omite */
+    if (!m.sitio && window.console) console.warn("plano: falta la ubicación de " + m.codigo);
+    return !!m.sitio;
   });
-
-  var SALAS = PLANO.salas.map(function (s) {
-    var tipo = PLANO.tipos.S;
-    return {
-      codigo: s.codigo,
-      letra: "S",
-      banda: "S",
-      estado: s.estado,
-      empresa: s.empresa || "",
-      rubro: s.nombre,
-      tipo: tipo.nombre,
-      medida: tipo.medida,
-      zona: tipo.zona,
-      nombre: s.nombre
-    };
-  });
-
-  var TODOS = MODULOS.concat(SALAS);
 
   /* ------------------------------------------------------------- Dibujo -- */
 
   function etiquetaAria(m) {
     var partes = [m.tipo + " " + m.codigo, ESTADOS[m.estado] || m.estado];
     if (m.empresa) partes.push(m.empresa);
-    else if (m.nombre) partes.push(m.nombre);
     return partes.join(", ") + ".";
   }
 
   function celda(m) {
-    var etiqueta = m.nombre
-      ? '<span class="plano-celda-nombre">' + esc(m.nombre) + "</span>"
-      : (m.empresa ? '<span class="plano-celda-emp">' + esc(m.empresa) + "</span>" : "");
+    /* En los módulos chicos solo cabe el código; el nombre de quien lo
+       ocupa sale al pasar el cursor y en la ficha del costado. */
+    var chica = m.sitio[2] * m.sitio[3] < 12;
+    var etiqueta = m.empresa && !chica
+      ? '<span class="plano-celda-emp">' + esc(m.empresa) + "</span>"
+      : "";
 
-    /* El title sirve de globo al pasar el cursor: en las bandas angostas
-       la celda solo muestra el código. */
     return '<button type="button" class="plano-celda es-' + m.estado + '"' +
+      ' style="' + posicion(m.sitio, 2) + '"' +
       ' data-codigo="' + esc(m.codigo) + '"' +
       ' title="' + esc(etiquetaAria(m)) + '"' +
       ' aria-label="' + esc(etiquetaAria(m)) + '">' +
@@ -104,17 +98,40 @@
       "</button>";
   }
 
+  function servicio(s) {
+    return '<div class="plano-servicio ' + esc(s.clase) +
+      (s.forma === "vertical" ? " es-vertical" : "") + '"' +
+      ' style="' + posicion(s.sitio, 2) + '">' + esc(s.nombre) + "</div>";
+  }
+
+  /* Contorno y pórtico van en un SVG con las mismas medidas del recinto */
+  function trazado() {
+    var c = R.contorno;
+    var puntos = c.map(function (p) { return p.join(","); }).join(" ");
+
+    /* El pórtico es el lado diagonal: del 3er al 4to vértice */
+    var a = c[2], b = c[3];
+    var angulo = Math.atan2(a[1] - b[1], a[0] - b[0]) * 180 / Math.PI;
+    var mx = (a[0] + b[0]) / 2 - 0.9;
+    var my = (a[1] + b[1]) / 2 - 0.8;
+
+    return '<svg class="plano-trazado" viewBox="0 0 ' + R.ancho + " " + R.alto + '"' +
+      ' preserveAspectRatio="none" aria-hidden="true">' +
+      '<polygon class="plano-piso" points="' + puntos + '"/>' +
+      '<line class="plano-portico" x1="' + a[0] + '" y1="' + a[1] +
+        '" x2="' + b[0] + '" y2="' + b[1] + '"/>' +
+      '<text class="plano-portico-rotulo" x="' + mx + '" y="' + my + '"' +
+        ' transform="rotate(' + angulo + " " + mx + " " + my + ')">Pórtico · Ingreso</text>' +
+      "</svg>";
+  }
+
   function dibujar() {
-    /* Cada contenedor con data-banda recibe los módulos de esa banda */
-    Array.prototype.forEach.call(
-      document.querySelectorAll("[data-banda]"),
-      function (caja) {
-        var cual = caja.getAttribute("data-banda");
-        caja.innerHTML = TODOS.filter(function (m) {
-          return m.banda === cual;
-        }).map(celda).join("");
-      }
-    );
+    var recinto = document.getElementById("plano-recinto");
+    if (!recinto) return;
+    recinto.style.aspectRatio = R.ancho + " / " + R.alto;
+    recinto.innerHTML = trazado() +
+      PLANO.servicios.map(servicio).join("") +
+      TODOS.map(celda).join("");
   }
 
   /* ------------------------------------------------------------ Leyenda -- */
@@ -155,13 +172,20 @@
     }
 
     var datos = fila("Tipo", m.tipo) + fila("Medida", m.medida) + fila("Zona", m.zona);
-    if (m.nombre) datos += fila("Capítulo", m.nombre);
     if (m.empresa) datos += fila("Asignado a", m.empresa);
-    if (m.rubro && !m.nombre) datos += fila("Rubro", m.rubro);
+    if (m.rubro) datos += fila("Rubro", m.rubro);
+
+    /* Con número de WhatsApp configurado (js/main.js) la reserva va por
+       ahí; si no, al formulario de contacto. */
+    var whatsapp = window.enlaceWhatsApp && window.enlaceWhatsApp(
+      "Hola, me interesa reservar el módulo " + m.codigo +
+      " del área de exhibición del I Congreso Nacional de Ingeniería.");
 
     var pie = m.estado === "disponible"
-      ? '<a class="btn btn-primary btn-block" href="contacto.html?stand=' +
-        encodeURIComponent(m.codigo) + '">Reservar el módulo ' + esc(m.codigo) + "</a>"
+      ? '<a class="btn btn-primary btn-block" href="' +
+        esc(whatsapp || "contacto.html?stand=" + encodeURIComponent(m.codigo)) + '"' +
+        (whatsapp ? ' target="_blank" rel="noopener"' : "") +
+        ">Reservar el módulo " + esc(m.codigo) + "</a>"
       : '<p class="plano-ficha-nota">' +
         (m.estado === "reservado"
           ? "Reserva en trámite. Escríbanos si desea quedar en lista de espera."
@@ -270,7 +294,7 @@
     montarFiltros();
     aplicarFiltros();
 
-    /* Un solo escuchador para las 112 celdas, en lugar de uno por celda */
+    /* Un solo escuchador para todas las celdas, en lugar de uno por celda */
     document.getElementById("plano-mapa").addEventListener("click", function (e) {
       var celda = e.target.closest ? e.target.closest(".plano-celda") : null;
       if (celda) seleccionar(celda.getAttribute("data-codigo"));

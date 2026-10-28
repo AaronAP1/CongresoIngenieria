@@ -1,6 +1,20 @@
 // I Congreso Nacional de Ingeniería — CIP-CN 2027
 
+// WhatsApp que recibe las solicitudes de patrocinio y exhibición: solo
+// dígitos, con código de país (Perú: 51), p. ej. "51987654321".
+// Mientras esté vacío, esos botones siguen llevando a contacto.html.
+const WHATSAPP_COMERCIAL = "";
+
+// Enlace de WhatsApp con el mensaje ya escrito, o null si aún no hay
+// número. También lo usa js/plano.js para "Reservar el módulo".
+window.enlaceWhatsApp = function (mensaje) {
+  const numero = WHATSAPP_COMERCIAL.replace(/\D/g, "");
+  if (!numero) return null;
+  return "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensaje);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+  initWhatsapp();
   initNavToggle();
   initCountdown();
   initEjeCards();
@@ -12,6 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initVerCompleto();
   initScrollReveal();
 });
+
+// Los enlaces con data-whatsapp="mensaje" abren WhatsApp con ese mensaje.
+function initWhatsapp() {
+  document.querySelectorAll("[data-whatsapp]").forEach(function (enlace) {
+    const url = window.enlaceWhatsApp(enlace.getAttribute("data-whatsapp"));
+    if (!url) return;
+    enlace.href = url;
+    enlace.target = "_blank";
+    enlace.rel = "noopener";
+  });
+}
 
 function initNavToggle() {
   const toggle = document.querySelector(".nav-toggle");

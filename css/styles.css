@@ -268,9 +268,9 @@ section.tight { padding: 56px 0; }
   position: absolute;
   top: 0; right: 0; bottom: 0;
   width: 58%;
-  background-image: url("../assets/img/photo-sede-cuartel.jpg");
+  background-image: url("../assets/img/photo-sede-unalm.jpg");
   background-size: cover;
-  background-position: center 15%;
+  background-position: center 45%;
   opacity: 0.45;
   /* El borde izquierdo se disuelve, así no queda costura contra el degradado. */
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 48%);

@@ -1364,6 +1364,9 @@ body.v3 .eje-nav-all:focus-visible { outline: 2px solid var(--navy-800); outline
 @media (max-width: 760px) {
   body.v3 .eje-hero { padding: 34px 0 40px; }
   body.v3 .eje-hero::before { width: 70%; }
+  /* En movil el texto pasa por encima de la foto: se oscurece mas */
+  body.v3 .eje-hero-foto { width: 70%; }
+  body.v3 .eje-hero-foto::after { background: rgba(8, 23, 44, 0.72); opacity: 1; }
   body.v3 .eje-hero h1 { max-width: none; }
   body.v3 .eje-hero-sub { max-width: none; }
 
@@ -2059,6 +2062,26 @@ body.v3 .eje-hero-motivo {
 }
 body.v3 .eje-hero-motivo svg { width: 100%; height: 100%; display: block; }
 
+/* Foto del eje: ocupa la misma cuna diagonal y la tapa */
+body.v3 .eje-hero-foto {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 0;
+  width: 52%;
+  background-size: cover;
+  background-position: center;
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
+}
+/* Velo con el tono del eje: amarra la foto a la paleta y la funde con el
+   azul del lado del texto */
+body.v3 .eje-hero-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--e-b) 0%, rgba(8, 23, 44, 0.45) 55%, rgba(8, 23, 44, 0.12) 100%);
+  opacity: 0.88;
+}
+
 /* Acentos de la ficha, ahora con el color del eje --------------------------- */
 
 body.v3 .eje-block h2 { color: var(--e-b); }
@@ -2095,8 +2118,8 @@ body.v3 .eje-tile:hover .eje-tile-cta { color: var(--e-b); }
 /* ==========================================================================
    PLANO DE EXHIBICIÓN (exhibicion.html)
    El color no lo da la zona sino la situación del módulo: de un vistazo se
-   ve cuál está libre, cuál apartado y cuál ocupado. La zona se distingue
-   por el rótulo de la banda y por el tamaño de la celda.
+   ve cuál está libre, cuál apartado y cuál ocupado. El tipo se distingue
+   por el tamaño: cada módulo está dibujado a escala.
    ========================================================================== */
 
 body.v3 {
@@ -2232,96 +2255,77 @@ body.v3 .plano-mapa {
   border-radius: var(--radius-md);
 }
 
-body.v3 .plano-superior {
-  display: grid;
-  grid-template-columns: 1fr 260px 240px;
-  gap: 12px;
-  margin-bottom: 14px;
+/* El recinto guarda la proporción del plano real (60.40 × 25.20 m): todo
+   lo de adentro va posicionado en porcentaje, así nada se deforma. */
+body.v3 .plano-recinto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 60.4 / 25.2;
 }
-
-body.v3 .plano-cuerpo {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr) 48px;
-  gap: 14px;
-  align-items: stretch;
+body.v3 .plano-trazado {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
-body.v3 .plano-lateral {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  gap: 12px;
+/* El SVG usa metros como unidad: los trazos se fijan en px para que no
+   engorden ni adelgacen con el ancho del plano. */
+body.v3 .plano-piso {
+  fill: var(--gray-050);
+  stroke: var(--navy-900);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
 }
-body.v3 .plano-filas { display: grid; gap: 18px; align-content: start; }
+body.v3 .plano-portico {
+  stroke: var(--red-700);
+  stroke-width: 7px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Aquí 1px equivale a 1 m del plano */
+body.v3 .plano-portico-rotulo {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.8px;
+  letter-spacing: 0.08px;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--red-700);
+}
 
 /* -------------------------------------------------------- Servicios ------ */
 
-/* Todo lo que no se alquila: escenario, salas de apoyo, ingresos. */
+/* Todo lo que no se alquila: recesos de café, árbol y monumento. */
 body.v3 .plano-servicio {
+  position: absolute;
   display: grid;
   place-items: center;
-  padding: 12px 10px;
+  padding: 4px;
   border-radius: var(--radius-sm);
-  background: var(--gray-050);
+  background: var(--gray-100);
   border: 1px solid var(--gray-300);
   font-family: var(--font-head);
   font-weight: 600;
-  font-size: 0.8rem;
-  line-height: 1.25;
+  font-size: 0.66rem;
+  line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--gray-500);
 }
-body.v3 .zona-escenario {
-  background: var(--navy-900);
-  border-color: var(--navy-900);
-  color: #fff;
-}
-body.v3 .zona-vip {
-  background: var(--gold-400);
-  border-color: var(--gold-500);
-  color: var(--navy-950);
-}
-body.v3 .zona-demo { min-height: 110px; }
-body.v3 .zona-portico {
-  background: var(--red-700);
-  border-color: var(--red-800);
-  color: #fff;
-}
-/* El pórtico lateral va de canto: ocupa una franja angosta a la derecha */
-body.v3 .portico-lado {
+body.v3 .plano-servicio.es-vertical {
   writing-mode: vertical-rl;
-  letter-spacing: 0.14em;
-}
-body.v3 .portico-pie { margin-top: 12px; padding: 10px; }
-
-body.v3 .plano-pasillo {
-  padding: 8px 0;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  text-align: center;
-  color: var(--gray-500);
-  background: repeating-linear-gradient(
-    90deg, var(--gray-100) 0 14px, transparent 14px 28px);
-  border-radius: var(--radius-pill);
-}
-
-/* ----------------------------------------------------------- Bandas ------ */
-
-body.v3 .plano-fila-rotulo {
-  display: block;
-  margin-bottom: 8px;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 0.78rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--navy-800);
 }
-body.v3 .plano-banda { display: grid; gap: 7px; }
-body.v3 .plano-banda + .plano-banda { margin-top: 7px; }
-body.v3 .plano-banda.cols-14 { grid-template-columns: repeat(14, minmax(0, 1fr)); }
-body.v3 .plano-banda.cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+body.v3 .zona-arbol {
+  background: repeating-linear-gradient(45deg, var(--gray-100) 0 4px, var(--gray-050) 4px 8px);
+}
+body.v3 .zona-monumento {
+  border-radius: 50%;
+  border-style: dashed;
+  background: var(--white);
+}
 
 /* ----------------------------------------------------------- Celdas ------ */
 
@@ -2344,8 +2348,7 @@ body.v3 .plano-celda {
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
 }
 body.v3 .plano-celda-cod { font-weight: 700; letter-spacing: 0.04em; }
-body.v3 .plano-celda-emp,
-body.v3 .plano-celda-nombre {
+body.v3 .plano-celda-emp {
   font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 500;
@@ -2358,11 +2361,6 @@ body.v3 .plano-celda-nombre {
   overflow: hidden;
   overflow-wrap: anywhere;
 }
-
-/* En las bandas de 14 columnas la celda ronda los 55 px: solo cabe el
-   código. El nombre de quien la ocupa sale al pasar el cursor y en la
-   ficha del costado. */
-body.v3 .plano-banda.cols-14 .plano-celda-emp { display: none; }
 
 body.v3 .plano-celda.es-disponible {
   background: var(--white);
@@ -2396,9 +2394,16 @@ body.v3 .plano-celda.is-sel {
 body.v3 .plano-celda.is-apagado { opacity: 0.18; }
 body.v3 .plano-celda.is-apagado:hover { transform: none; box-shadow: none; }
 
-/* Las salas y las islas son espacios grandes: se dibujan más altos */
-body.v3 .banda-salas .plano-celda { min-height: 120px; }
-body.v3 .banda-islas .plano-celda { min-height: 88px; }
+/* Dentro del recinto cada módulo va a escala: sin alto mínimo ni relleno,
+   que en los de 2 × 2 m apenas cabe el código. */
+body.v3 .plano-recinto .plano-celda {
+  position: absolute;
+  min-height: 0;
+  padding: 2px;
+  gap: 1px;
+  align-items: center;
+  font-size: 0.72rem;
+}
 
 body.v3 .plano-visibles {
   margin: 12px 0 0;

@@ -3,11 +3,9 @@
    --------------------------------------------------------------------------
    Alimenta el plano interactivo de exhibicion.html (lo dibuja js/plano.js).
 
-   ¡OJO! TODO ESTE CONTENIDO ES FICTICIO. Los nombres de empresa y los
-   estados son de muestra, para ver el plano funcionando. Antes de publicar
-   hay que reemplazarlos por la asignación real del Comité.
+   Todos los módulos arrancan "disponible": el Comité aún no asigna ninguno.
 
-   Cómo actualizar un módulo:
+   Cómo actualizar un módulo (solo se toca MODULOS):
      · Cambia su estado: "disponible" | "reservado" | "ocupado".
      · Si pasa a "ocupado" o "reservado", pon empresa y rubro.
      · Para dejarlo libre, basta con "disponible" y empresa vacía.
@@ -15,151 +13,143 @@
    Cada fila de MODULOS es:
      [ código, estado, empresa, rubro ]
 
-   El código manda: su letra decide el tipo, la medida y la zona (ver TIPOS),
-   y su número decide en qué banda del plano se dibuja (ver js/plano.js).
+   El código es el del plano de planta. Su letra decide el tipo, la medida y
+   la zona (ver TIPOS); los módulos sin letra (01 a 04) son del tipo M.
 
-   Inventario: 105 stands (A 14 · B 28 · C 28 · D 21 · E 14)
-               + 7 salas de exposición por capítulo.
+   Inventario: 52 módulos (A 26 · B 12 · C 2 · E 2 · F 6 · M 4),
+               unos 520 m² de stands.
    ========================================================================== */
 
 window.PLANO = {
 
   /* Qué es cada letra. El texto sale tal cual en la ficha del módulo. */
   tipos: {
-    A: { nombre: "Preferencial",       medida: "3 × 2 m", zona: "Frente al escenario" },
-    B: { nombre: "Esquinero",          medida: "3 × 2 m", zona: "Pasillo central" },
-    C: { nombre: "Interno",            medida: "3 × 2 m", zona: "Pasillo central" },
-    D: { nombre: "Innovación",         medida: "3 × 2 m", zona: "Zona de innovación y startups" },
-    E: { nombre: "Isla corporativa",   medida: "4 × 4 m", zona: "Pabellón corporativo" },
-    S: { nombre: "Sala de exposición", medida: "120 m²",  zona: "Salas por capítulo" }
+    A: { nombre: "Stand",          medida: "3 × 2 m",  zona: "Perímetro" },
+    B: { nombre: "Stand",          medida: "4 × 3 m",  zona: "Bloques centrales" },
+    C: { nombre: "Stand ampliado", medida: "9 × 2 m",  zona: "Perímetro" },
+    E: { nombre: "Isla",           medida: "10 × 6 m", zona: "Centro del recinto" },
+    F: { nombre: "Stand",          medida: "2 × 2 m",  zona: "Fondo del recinto" },
+    M: { nombre: "Módulo",         medida: "4 × 2 m",  zona: "Pasillo central" }
   },
 
-  /* Los 105 stands modulares ------------------------------------------- */
+  /* Situación de los 52 módulos ----------------------------------------- */
   modulos: [
-    /* Fila A — preferenciales, primera línea frente al escenario */
-    ["A-1",  "ocupado",    "Andes Geotecnia",        "Geotecnia y mecánica de suelos"],
-    ["A-2",  "ocupado",    "HidroPerú Ingeniería",   "Obras hidráulicas"],
-    ["A-3",  "ocupado",    "Metalmec Sur",           "Metalmecánica"],
-    ["A-4",  "reservado",  "",                       ""],
-    ["A-5",  "ocupado",    "Pacífico Energía",       "Generación y redes eléctricas"],
-    ["A-6",  "ocupado",    "Altiplano Minería",      "Equipos mineros"],
-    ["A-7",  "disponible", "",                       ""],
-    ["A-8",  "ocupado",    "Geodata Andina",         "Topografía y geomática"],
-    ["A-9",  "ocupado",    "Vía Nova Infraestructura", "Carreteras y puentes"],
-    ["A-10", "reservado",  "",                       ""],
-    ["A-11", "ocupado",    "Cimentia Perú",          "Cimentaciones profundas"],
-    ["A-12", "disponible", "",                       ""],
-    ["A-13", "ocupado",    "Sismotec",               "Instrumentación sísmica"],
-    ["A-14", "ocupado",    "Electro Cordillera",     "Equipamiento eléctrico"],
+    /* A — stands de 3 × 2 en el perímetro */
+    ["A01", "disponible", "", ""],
+    ["A02", "disponible", "", ""],
+    ["A03", "disponible", "", ""],
+    ["A04", "disponible", "", ""],
+    ["A05", "disponible", "", ""],
+    ["A06", "disponible", "", ""],
+    ["A07", "disponible", "", ""],
+    ["A08", "disponible", "", ""],
+    ["A09", "disponible", "", ""],
+    ["A10", "disponible", "", ""],
+    ["A11", "disponible", "", ""],
+    ["A12", "disponible", "", ""],
+    ["A13", "disponible", "", ""],
+    ["A14", "disponible", "", ""],
+    ["A15", "disponible", "", ""],
+    ["A16", "disponible", "", ""],
+    ["A17", "disponible", "", ""],
+    ["A18", "disponible", "", ""],
+    ["A19", "disponible", "", ""],
+    ["A20", "disponible", "", ""],
+    ["A21", "disponible", "", ""],
+    ["A22", "disponible", "", ""],
+    ["A23", "disponible", "", ""],
+    ["A30", "disponible", "", ""],
+    ["A31", "disponible", "", ""],
+    ["A32", "disponible", "", ""],
 
-    /* Fila B — esquineros. B-1 a B-14 abajo, B-15 a B-28 arriba */
-    ["B-1",  "ocupado",    "Nodo Digital",           "Gemelos digitales y BIM"],
-    ["B-2",  "disponible", "",                       ""],
-    ["B-3",  "ocupado",    "Cíclope Automatización", "Automatización industrial"],
-    ["B-4",  "disponible", "",                       ""],
-    ["B-5",  "disponible", "",                       ""],
-    ["B-6",  "ocupado",    "BioAndes Procesos",      "Bioprocesos"],
-    ["B-7",  "reservado",  "",                       ""],
-    ["B-8",  "disponible", "",                       ""],
-    ["B-9",  "ocupado",    "Talara Procesos",        "Ingeniería de procesos"],
-    ["B-10", "disponible", "",                       ""],
-    ["B-11", "disponible", "",                       ""],
-    ["B-12", "ocupado",    "Moquegua Ingeniería",    "Consultoría de proyectos"],
-    ["B-13", "disponible", "",                       ""],
-    ["B-14", "reservado",  "",                       ""],
-    ["B-15", "ocupado",    "Hidrovía Ingenieros",    "Saneamiento"],
-    ["B-16", "disponible", "",                       ""],
-    ["B-17", "ocupado",    "Marañón Ingeniería",     "Supervisión de obras"],
-    ["B-18", "disponible", "",                       ""],
-    ["B-19", "reservado",  "",                       ""],
-    ["B-20", "ocupado",    "Cobre Verde Tecnología", "Procesamiento de minerales"],
-    ["B-21", "disponible", "",                       ""],
-    ["B-22", "ocupado",    "AguaSur Soluciones",     "Tratamiento de agua"],
-    ["B-23", "disponible", "",                       ""],
-    ["B-24", "ocupado",    "Perfil Metálica",        "Estructuras metálicas"],
-    ["B-25", "disponible", "",                       ""],
-    ["B-26", "reservado",  "",                       ""],
-    ["B-27", "ocupado",    "Domo Estructuras",       "Cubiertas y naves industriales"],
-    ["B-28", "disponible", "",                       ""],
+    /* B — stands de 4 × 3 en los tres bloques centrales */
+    ["B03", "disponible", "", ""],
+    ["B04", "disponible", "", ""],
+    ["B06", "disponible", "", ""],
+    ["B07", "disponible", "", ""],
+    ["B10", "disponible", "", ""],
+    ["B11", "disponible", "", ""],
+    ["B12", "disponible", "", ""],
+    ["B13", "disponible", "", ""],
+    ["B14", "disponible", "", ""],
+    ["B15", "disponible", "", ""],
+    ["B16", "disponible", "", ""],
+    ["B17", "disponible", "", ""],
 
-    /* Fila C — internos. C-1 a C-14 abajo, C-15 a C-28 arriba */
-    ["C-1",  "ocupado",    "Termika Industrial",     "Climatización y térmica"],
-    ["C-2",  "disponible", "",                       ""],
-    ["C-3",  "disponible", "",                       ""],
-    ["C-4",  "ocupado",    "Concretec Andina",       "Concreto y aditivos"],
-    ["C-5",  "disponible", "",                       ""],
-    ["C-6",  "reservado",  "",                       ""],
-    ["C-7",  "disponible", "",                       ""],
-    ["C-8",  "ocupado",    "Topo Láser",             "Escaneo 3D"],
-    ["C-9",  "disponible", "",                       ""],
-    ["C-10", "disponible", "",                       ""],
-    ["C-11", "ocupado",    "Kallpa Instrumentación", "Instrumentación y control"],
-    ["C-12", "disponible", "",                       ""],
-    ["C-13", "disponible", "",                       ""],
-    ["C-14", "disponible", "",                       ""],
-    ["C-15", "disponible", "",                       ""],
-    ["C-16", "ocupado",    "Ferrovía Andina",        "Infraestructura ferroviaria"],
-    ["C-17", "disponible", "",                       ""],
-    ["C-18", "disponible", "",                       ""],
-    ["C-19", "ocupado",    "Puerto Norte Logística", "Infraestructura portuaria"],
-    ["C-20", "disponible", "",                       ""],
-    ["C-21", "reservado",  "",                       ""],
-    ["C-22", "disponible", "",                       ""],
-    ["C-23", "ocupado",    "Solaris Altiplano",      "Energía solar"],
-    ["C-24", "disponible", "",                       ""],
-    ["C-25", "ocupado",    "Eolo Pacífico",          "Energía eólica"],
-    ["C-26", "disponible", "",                       ""],
-    ["C-27", "disponible", "",                       ""],
-    ["C-28", "reservado",  "",                       ""],
+    /* C — stands ampliados de 9 × 2 */
+    ["C01", "disponible", "", ""],
+    ["C04", "disponible", "", ""],
 
-    /* Fila D — zona de innovación y startups, en tres bandas de siete */
-    ["D-1",  "ocupado",    "Amauta Software",        "Software de ingeniería"],
-    ["D-2",  "disponible", "",                       ""],
-    ["D-3",  "ocupado",    "Quilla Robótica",        "Robótica y mecatrónica"],
-    ["D-4",  "disponible", "",                       ""],
-    ["D-5",  "reservado",  "",                       ""],
-    ["D-6",  "disponible", "",                       ""],
-    ["D-7",  "ocupado",    "DronTopo",               "Drones y fotogrametría"],
-    ["D-8",  "disponible", "",                       ""],
-    ["D-9",  "ocupado",    "Wayra Ventilación",      "Ventilación de minas"],
-    ["D-10", "disponible", "",                       ""],
-    ["D-11", "disponible", "",                       ""],
-    ["D-12", "reservado",  "",                       ""],
-    ["D-13", "disponible", "",                       ""],
-    ["D-14", "ocupado",    "Inti Materiales",        "Nuevos materiales"],
-    ["D-15", "disponible", "",                       ""],
-    ["D-16", "disponible", "",                       ""],
-    ["D-17", "ocupado",    "Rumi Laboratorios",      "Ensayo de materiales"],
-    ["D-18", "disponible", "",                       ""],
-    ["D-19", "disponible", "",                       ""],
-    ["D-20", "reservado",  "",                       ""],
-    ["D-21", "disponible", "",                       ""],
+    /* E — islas de 10 × 6 */
+    ["E01", "disponible", "", ""],
+    ["E02", "disponible", "", ""],
 
-    /* Fila E — islas corporativas, en dos bandas de siete */
-    ["E-1",  "ocupado",    "Yaku Tratamiento",       "Agua industrial"],
-    ["E-2",  "disponible", "",                       ""],
-    ["E-3",  "ocupado",    "Chavín Estructuras",     "Prefabricados de concreto"],
-    ["E-4",  "reservado",  "",                       ""],
-    ["E-5",  "ocupado",    "Paracas Naval",          "Ingeniería naval"],
-    ["E-6",  "disponible", "",                       ""],
-    ["E-7",  "ocupado",    "Nazca Aeroespacial",     "Satelital y observación"],
-    ["E-8",  "disponible", "",                       ""],
-    ["E-9",  "ocupado",    "Titicaca Hidráulica",    "Presas y reservorios"],
-    ["E-10", "disponible", "",                       ""],
-    ["E-11", "reservado",  "",                       ""],
-    ["E-12", "ocupado",    "Chasqui Logística",      "Logística de proyectos"],
-    ["E-13", "disponible", "",                       ""],
-    ["E-14", "disponible", "",                       ""]
+    /* F — stands de 2 × 2 al fondo */
+    ["F01", "disponible", "", ""],
+    ["F02", "disponible", "", ""],
+    ["F03", "disponible", "", ""],
+    ["F04", "disponible", "", ""],
+    ["F05", "disponible", "", ""],
+    ["F06", "disponible", "", ""],
+
+    /* M — módulos de 4 × 2 en el pasillo central */
+    ["01", "disponible", "", ""],
+    ["02", "disponible", "", ""],
+    ["03", "disponible", "", ""],
+    ["04", "disponible", "", ""]
   ],
 
-  /* Las 7 salas de exposición. El nombre es el capítulo que las ocupa. */
-  salas: [
-    { codigo: "S-1", nombre: "Ingeniería Pesquera",                        estado: "disponible", empresa: "" },
-    { codigo: "S-2", nombre: "Ingeniería Eléctrica y Electrónica",         estado: "ocupado",    empresa: "Electro Cordillera" },
-    { codigo: "S-3", nombre: "Ingeniería Civil",                           estado: "ocupado",    empresa: "Vía Nova Infraestructura" },
-    { codigo: "S-4", nombre: "Ingeniería Minera, Mecánica y Metalúrgica",  estado: "ocupado",    empresa: "Altiplano Minería" },
-    { codigo: "S-5", nombre: "Ingeniería Ambiental y Agroindustrial",      estado: "reservado",  empresa: "" },
-    { codigo: "S-6", nombre: "Ingeniería Industrial, Química y Petróleo",  estado: "ocupado",    empresa: "Talara Procesos" },
-    { codigo: "S-7", nombre: "Ingeniería de Sistemas y Transporte",        estado: "disponible", empresa: "" }
+  /* ======================================================================
+     PLANTA — dónde va cada cosa. Solo se toca si cambia el plano.
+     Todo en metros: [ x, y, ancho, alto ], medidos desde la esquina
+     superior izquierda del recinto (el ingreso queda abajo a la derecha).
+     ====================================================================== */
+
+  /* Contorno del recinto: 60.40 × 25.20 m, con la esquina del ingreso
+     cortada en diagonal. */
+  recinto: {
+    ancho: 60.4,
+    alto: 25.2,
+    contorno: [[0, 0], [60.4, 0], [60.4, 13.2], [49.6, 25.2], [0, 25.2]]
+  },
+
+  ubicaciones: {
+    /* Fila superior */
+    A12: [7, 0, 3, 2],  A13: [10, 0, 3, 2], A14: [13, 0, 3, 2], A15: [16, 0, 3, 2],
+    A16: [19, 0, 3, 2], A17: [22, 0, 3, 2], A18: [25, 0, 3, 2], A30: [28, 0, 3, 2],
+    A31: [31, 0, 3, 2], A32: [34, 0, 3, 2], C04: [37, 0, 9, 2],
+    A19: [52, 0, 3, 2], A20: [55, 0, 3, 2],
+
+    /* Columna derecha */
+    A21: [58, 2, 2, 3], A22: [58, 5, 2, 3], A23: [58, 8, 2, 3],
+
+    /* Fila inferior */
+    A11: [5, 23, 3, 2],  A10: [8, 23, 3, 2],  A09: [11, 23, 3, 2], A08: [14, 23, 3, 2],
+    A07: [17, 23, 3, 2], A06: [20, 23, 3, 2], A05: [23, 23, 3, 2], A04: [26, 23, 3, 2],
+    A03: [29, 23, 3, 2], A02: [32, 23, 3, 2], A01: [35, 23, 3, 2], C01: [38, 23, 9, 2],
+
+    /* Fondo */
+    F06: [0, 2, 2, 2],  F05: [0, 4, 2, 2],  F04: [0, 6, 2, 2],
+    F03: [0, 17, 2, 2], F02: [0, 19, 2, 2], F01: [0, 21, 2, 2],
+
+    /* Bloques B */
+    B14: [5, 5, 4, 3],   B13: [9, 5, 4, 3],   B15: [5, 8, 4, 3],   B12: [9, 8, 4, 3],
+    B06: [26, 5, 4, 3],  B03: [30, 5, 4, 3],  B07: [26, 8, 4, 3],  B04: [30, 8, 4, 3],
+    B16: [5, 14, 4, 3],  B11: [9, 14, 4, 3],  B17: [5, 17, 4, 3],  B10: [9, 17, 4, 3],
+
+    /* Módulos del pasillo central */
+    "04": [17.5, 6, 2, 4], "03": [19.5, 6, 2, 4],
+    "02": [42, 6, 2, 4],   "01": [44, 6, 2, 4],
+
+    /* Islas */
+    E02: [25, 14, 10, 6], E01: [39, 14, 10, 6]
+  },
+
+  /* Lo que no se alquila. forma "vertical" escribe el rótulo de canto. */
+  servicios: [
+    { nombre: "Receso de café",  clase: "zona-cafe",      forma: "vertical", sitio: [37, 5, 2, 6] },
+    { nombre: "Receso de café",  clase: "zona-cafe",      sitio: [17.5, 14, 3, 6] },
+    { nombre: "Árbol existente", clase: "zona-arbol",     sitio: [46, 0, 6, 2] },
+    { nombre: "Monumento",       clase: "zona-monumento", sitio: [48.7, 4.9, 6, 6] }
   ]
 };
