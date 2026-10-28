@@ -28,10 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Los enlaces con data-whatsapp="mensaje" abren WhatsApp con ese mensaje.
+// Sin número, conservan su href; los que además llevan data-whatsapp-solo
+// no tienen a dónde ir y se ocultan.
 function initWhatsapp() {
   document.querySelectorAll("[data-whatsapp]").forEach(function (enlace) {
     const url = window.enlaceWhatsApp(enlace.getAttribute("data-whatsapp"));
-    if (!url) return;
+    if (!url) {
+      if (enlace.hasAttribute("data-whatsapp-solo")) enlace.style.display = "none";
+      return;
+    }
     enlace.href = url;
     enlace.target = "_blank";
     enlace.rel = "noopener";

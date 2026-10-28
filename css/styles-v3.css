@@ -1833,7 +1833,10 @@ body.v3 .sponsor-slots .slot img {
 
 body.v3 .form-opciones {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* Una columna por opción visible: Patrocinio se oculta si aún no hay
+     número de WhatsApp */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 10px;
   padding: 18px 20px;
   border-bottom: 1px solid var(--gray-100);
@@ -1917,7 +1920,7 @@ body.v3 .gform-elegir p { margin: 0; font-size: 0.92rem; }
 
 @media (max-width: 560px) {
   /* Apiladas: en una fila de tres no cabe el texto de apoyo */
-  body.v3 .form-opciones { grid-template-columns: 1fr; padding: 14px; }
+  body.v3 .form-opciones { grid-auto-flow: row; padding: 14px; }
   body.v3 .form-opciones button {
     flex-direction: row;
     align-items: center;

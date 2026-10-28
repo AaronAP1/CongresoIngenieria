@@ -118,16 +118,16 @@
              pulsar una opcion (asi la pagina no arranca cargando un iframe
              de Google que quiza nadie use).
 
-             Hoy los tres botones apuntan al MISMO formulario. Si se crean
-             formularios separados, basta con cambiar el data-gform-src de
-             cada boton por su propia URL de Google Forms
-             (Enviar -> pestana < >), conservando el ?embedded=true.
+             Solo "Consultas" carga formulario. Patrocinio y exhibicion se
+             atienden por WhatsApp (numero en js/main.js). Para cambiar de
+             formulario, reemplaza el data-gform-src por la URL de Google
+             Forms (Enviar -> pestana < >), conservando el ?embedded=true.
              El alto se ajusta en css/styles-v3.css con --gform-h.
              ==================================================================== -->
         <div class="contact-card contact-card--form">
           <div class="form-head">
             <h3>¿En qué podemos ayudarte?</h3>
-            <p>Patrocinio y consultas se responden desde este mismo formulario. La inscripción tiene su propia página.</p>
+            <p>Las consultas se responden desde este formulario. Patrocinio y exhibición se atienden por WhatsApp, y la inscripción tiene su propia página.</p>
           </div>
 
           <div class="form-opciones"
@@ -143,15 +143,16 @@
               <span class="det">Quiero participar como asistente</span>
             </a>
 
-            <button type="button" aria-pressed="false"
-                    data-titulo="Patrocinio y exhibición"
-                    data-gform-src="https://docs.google.com/forms/d/e/1FAIpQLSfatgPwNHyBYIOp2eo6RQeC9KsjpQaSXhjE1wAlRCxHZxBZgw/viewform?embedded=true">
+            <!-- Patrocinio y exhibicion van por WhatsApp. Sin numero
+                 configurado esta opcion se oculta (ver initWhatsapp). -->
+            <a class="es-enlace" href="#" data-whatsapp-solo
+               data-whatsapp="Hola, quisiera información sobre el patrocinio o la exhibición en el I Congreso Nacional de Ingeniería.">
               <span class="ico">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M2 21h20"/><path d="M7 12h2M7 16h2"/></svg>
               </span>
-              <b>Patrocinio</b>
-              <span class="det">Quiero auspiciar o exhibir</span>
-            </button>
+              <b>Patrocinio <svg class="flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></b>
+              <span class="det">Auspiciar o exhibir, por WhatsApp</span>
+            </a>
 
             <button type="button" aria-pressed="false"
                     data-titulo="Consultas generales"
