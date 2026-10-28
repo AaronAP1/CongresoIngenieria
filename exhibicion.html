@@ -68,6 +68,134 @@
   </div>
 </section>
 
+<!-- ==========================================================================
+     PLANO DE EXHIBICIÓN
+     La planta (escenario, salas, servicios y pórticos) está escrita aquí.
+     Los módulos los dibuja js/plano.js dentro de cada [data-banda], leyendo
+     js/plano-data.js. Para cambiar quién ocupa un stand se edita ESE archivo,
+     no este.
+     ========================================================================== -->
+<section id="plano" class="plano-seccion">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Plano de planta</span>
+      <h2>Elija su módulo en el área de exhibición</h2>
+      <p>105 stands modulares y 7 salas de exposición por capítulo, distribuidos en la carpa de 1,824 m². Pulse cualquier módulo para ver su situación, medidas y ubicación.</p>
+    </div>
+
+    <div class="plano-barra">
+      <ul class="plano-leyenda">
+        <li><span class="marca es-disponible"></span>Disponibles <strong data-conteo="disponible">0</strong></li>
+        <li><span class="marca es-reservado"></span>Reservados <strong data-conteo="reservado">0</strong></li>
+        <li><span class="marca es-ocupado"></span>Ocupados <strong data-conteo="ocupado">0</strong></li>
+        <li class="total">Total en planta <strong data-conteo-total>0</strong></li>
+      </ul>
+
+      <div class="plano-filtros">
+        <div class="plano-chips" role="group" aria-label="Filtrar por situación">
+          <button type="button" data-filtro-estado="todos" aria-pressed="true">Todos</button>
+          <button type="button" data-filtro-estado="disponible" aria-pressed="false">Disponibles</button>
+          <button type="button" data-filtro-estado="reservado" aria-pressed="false">Reservados</button>
+          <button type="button" data-filtro-estado="ocupado" aria-pressed="false">Ocupados</button>
+        </div>
+        <label class="plano-select">
+          <span>Zona</span>
+          <select id="plano-zona">
+            <option value="todas">Todas las zonas</option>
+            <option value="A">A · Preferenciales</option>
+            <option value="B">B · Esquineros</option>
+            <option value="C">C · Internos</option>
+            <option value="D">D · Innovación y startups</option>
+            <option value="E">E · Islas corporativas</option>
+            <option value="S">S · Salas de exposición</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="plano-wrap">
+      <div class="plano-lienzo">
+        <p class="plano-scroll-aviso">Desplace el plano de lado para verlo completo.</p>
+
+        <div class="plano-mapa" id="plano-mapa">
+
+          <!-- Franja superior: maquinaria en exhibición, sala VIP y escenario -->
+          <div class="plano-superior">
+            <div class="plano-servicio zona-demo">Demostración de maquinaria</div>
+            <div class="plano-servicio zona-vip">Sala VIP</div>
+            <div class="plano-servicio zona-escenario">Escenario y auditorio</div>
+          </div>
+
+          <div class="plano-cuerpo">
+            <!-- Servicios del lado izquierdo -->
+            <div class="plano-lateral">
+              <div class="plano-servicio zona-ss">SS. HH.</div>
+              <div class="plano-servicio zona-entrevistas">Área de entrevistas</div>
+              <div class="plano-servicio zona-prensa">Sala de prensa</div>
+              <div class="plano-servicio zona-food">Zona food trucks</div>
+            </div>
+
+            <!-- Bandas de módulos: las rellena js/plano.js -->
+            <div class="plano-filas">
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">A · Preferenciales</span>
+                <div class="plano-banda cols-14" data-banda="A"></div>
+              </div>
+
+              <div class="plano-pasillo">Pasillo principal</div>
+
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">B · Esquineros</span>
+                <div class="plano-banda cols-14" data-banda="B1"></div>
+                <div class="plano-banda cols-14" data-banda="B2"></div>
+              </div>
+
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">C · Internos</span>
+                <div class="plano-banda cols-14" data-banda="C1"></div>
+                <div class="plano-banda cols-14" data-banda="C2"></div>
+              </div>
+
+              <div class="plano-pasillo">Coffee break · circulación</div>
+
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">S · Salas de exposición por capítulo</span>
+                <div class="plano-banda cols-7 banda-salas" data-banda="S"></div>
+              </div>
+
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">D · Innovación y startups</span>
+                <div class="plano-banda cols-7" data-banda="D1"></div>
+                <div class="plano-banda cols-7" data-banda="D2"></div>
+                <div class="plano-banda cols-7" data-banda="D3"></div>
+              </div>
+
+              <div class="plano-fila">
+                <span class="plano-fila-rotulo">E · Islas corporativas</span>
+                <div class="plano-banda cols-7 banda-islas" data-banda="E1"></div>
+                <div class="plano-banda cols-7 banda-islas" data-banda="E2"></div>
+              </div>
+            </div>
+
+            <!-- Ingreso lateral -->
+            <div class="plano-servicio zona-portico portico-lado">Pórtico 02</div>
+          </div>
+
+          <div class="plano-servicio zona-portico portico-pie">Pórtico principal · Ingreso</div>
+        </div>
+
+        <p class="plano-visibles" data-visibles aria-live="polite"></p>
+      </div>
+
+      <aside class="plano-panel">
+        <div class="plano-ficha" id="plano-ficha" aria-live="polite"></div>
+      </aside>
+    </div>
+
+    <p class="plano-nota">Plano referencial de trabajo. La distribución definitiva, las medidas y la asignación de módulos quedan sujetas a la aprobación del Comité Organizador.</p>
+  </div>
+</section>
+
 <section class="bg-gray">
   <div class="container">
     <div class="section-head">
@@ -373,5 +501,8 @@
 </footer>
 
 <script src="js/main.js"></script>
+<!-- Plano de exhibición: primero los datos, luego el que los dibuja -->
+<script src="js/plano-data.js"></script>
+<script src="js/plano.js"></script>
 </body>
 </html>

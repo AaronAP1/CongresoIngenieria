@@ -183,7 +183,38 @@ function initHeroCarousel() {
       puntos.appendChild(b);
       return b;
     });
-    caja.appendChild(puntos);
+
+    /* Barra inferior: Anterior | puntos | Siguiente */
+    function flecha(clase, texto, signo) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "carousel-arrow " + clase;
+      b.innerHTML = signo < 0
+        ? '<span class="chev" aria-hidden="true">&lsaquo;</span><span class="txt">' + texto + "</span>"
+        : '<span class="txt">' + texto + '</span><span class="chev" aria-hidden="true">&rsaquo;</span>';
+      b.setAttribute("aria-label", texto + " imagen");
+      b.addEventListener("click", function () {
+        mostrar(actual + signo);
+        reiniciar();
+      });
+      return b;
+    }
+
+    var barra = document.createElement("div");
+    barra.className = "carousel-nav";
+    barra.appendChild(flecha("is-prev", "Anterior", -1));
+    barra.appendChild(puntos);
+    barra.appendChild(flecha("is-next", "Siguiente", 1));
+    caja.appendChild(barra);
+
+    /* Flechas del teclado cuando el carrusel tiene el foco */
+    caja.tabIndex = caja.tabIndex < 0 ? 0 : caja.tabIndex;
+    caja.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      e.preventDefault();
+      mostrar(actual + (e.key === "ArrowLeft" ? -1 : 1));
+      reiniciar();
+    });
 
     function mostrar(i) {
       actual = (i + fotos.length) % fotos.length;

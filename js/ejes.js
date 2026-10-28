@@ -242,12 +242,22 @@
     var i = EJES.indexOf(eje);
     var prev = EJES[(i - 1 + EJES.length) % EJES.length];
     var next = EJES[(i + 1) % EJES.length];
+    /* Cada tarjeta lleva la clase eje-tN del eje al que apunta: así toma
+       su color, no el del eje que se está leyendo. */
+    function tarjetaNav(destino, clase, flecha) {
+      return '<a class="eje-nav-link eje-t' + destino.num + (clase ? " " + clase : "") +
+        '" href="eje.html?eje=' + destino.num + '">' +
+        '<span class="flecha" aria-hidden="true">' + flecha + "</span>" +
+        '<span class="texto">' +
+          "<span>Eje " + dosDigitos(destino.num) + "</span>" +
+          "<strong>" + esc(destino.titulo) + "</strong>" +
+        "</span></a>";
+    }
+
     document.getElementById("eje-nav").innerHTML =
-      '<a class="eje-nav-link" href="eje.html?eje=' + prev.num + '">' +
-        '<span>← Eje ' + dosDigitos(prev.num) + "</span><strong>" + esc(prev.titulo) + "</strong></a>" +
+      tarjetaNav(prev, "", "&larr;") +
       '<a class="eje-nav-all" href="ejes-tematicos.html">Ver los 12 ejes</a>' +
-      '<a class="eje-nav-link align-end" href="eje.html?eje=' + next.num + '">' +
-        '<span>Eje ' + dosDigitos(next.num) + " →</span><strong>" + esc(next.titulo) + "</strong></a>";
+      tarjetaNav(next, "align-end", "&rarr;");
   }
 
   function noEncontrado() {
