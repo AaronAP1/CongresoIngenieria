@@ -113,66 +113,78 @@
 
       <div>
         <!-- ====================================================================
-             FORMULARIO DE CONTACTO
-             Primero se elige el motivo; el formulario recien se carga al
-             pulsar una opcion (asi la pagina no arranca cargando un iframe
-             de Google que quiza nadie use).
-
-             Solo "Consultas" carga formulario. Patrocinio y exhibicion se
-             atienden por WhatsApp (numero en js/main.js). Para cambiar de
-             formulario, reemplaza el data-gform-src por la URL de Google
-             Forms (Enviar -> pestana < >), conservando el ?embedded=true.
-             El alto se ajusta en css/styles-v3.css con --gform-h.
+             CANALES DE CONTACTO
+             WhatsApp: el numero se configura en js/main.js (WHATSAPP_COMERCIAL);
+             el href de aqui es solo el respaldo si no carga el JS.
+             Telefono y correo: boton para llamar/escribir y otro para copiar
+             (data-copiar, ver initCopiar en js/main.js).
              ==================================================================== -->
         <div class="contact-card contact-card--form">
           <div class="form-head">
             <h3>¿En qué podemos ayudarte?</h3>
-            <p>Las consultas se responden desde este formulario. Patrocinio y exhibición se atienden por WhatsApp, y la inscripción tiene su propia página.</p>
+            <p>Escríbenos por WhatsApp, llámanos o envíanos un correo. Consultas, patrocinio y exhibición se atienden por estos mismos canales.</p>
           </div>
 
-          <div class="form-opciones"
-               data-form-chooser="formulario-contacto"
-               aria-label="Motivo de contacto">
-            <!-- La inscripcion vive en su propia pagina: aqui solo se
-                 enlaza, para no tener dos caminos al mismo tramite. -->
-            <a class="es-enlace" href="inscripcion.html">
+          <div class="canales">
+            <div class="canal canal--wa">
               <span class="ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M18 8v6M15 11h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.44 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.77.7.67 5.8.67 12.06c0 2 .52 3.96 1.52 5.68L.57 23.3l5.7-1.5a11.35 11.35 0 0 0 5.77 1.47c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.88-3.32-8.02z"/></svg>
               </span>
-              <b>Inscripción <svg class="flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></b>
-              <span class="det">Quiero participar como asistente</span>
-            </a>
+              <div class="canal-texto">
+                <small>WhatsApp</small>
+                <b>+51 953 292 473</b>
+              </div>
+              <div class="canal-acciones">
+                <a class="canal-btn canal-btn--wa" href="https://wa.me/51953292473" target="_blank" rel="noopener"
+                   data-whatsapp="Hola, quisiera información sobre el I Congreso Nacional de Ingeniería.">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Enviar mensaje
+                </a>
+              </div>
+            </div>
 
-            <!-- Patrocinio y exhibicion van por WhatsApp. Sin numero
-                 configurado esta opcion se oculta (ver initWhatsapp). -->
-            <a class="es-enlace" href="#" data-whatsapp-solo
-               data-whatsapp="Hola, quisiera información sobre el patrocinio o la exhibición en el I Congreso Nacional de Ingeniería.">
+            <div class="canal">
               <span class="ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6-4 6 4v12"/><path d="M15 21V13h6v8"/><path d="M2 21h20"/><path d="M7 12h2M7 16h2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
               </span>
-              <b>Patrocinio <svg class="flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg></b>
-              <span class="det">Auspiciar o exhibir, por WhatsApp</span>
-            </a>
+              <div class="canal-texto">
+                <small>Teléfono</small>
+                <b>+51 923 383 442</b>
+              </div>
+              <div class="canal-acciones">
+                <a class="canal-btn" href="tel:+51923383442">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                  Llamar
+                </a>
+                <button type="button" class="canal-btn" data-copiar="+51 923 383 442" aria-label="Copiar número de teléfono">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copiar</span>
+                </button>
+              </div>
+            </div>
 
-            <button type="button" aria-pressed="false"
-                    data-titulo="Consultas generales"
-                    data-gform-src="https://docs.google.com/forms/d/e/1FAIpQLSfatgPwNHyBYIOp2eo6RQeC9KsjpQaSXhjE1wAlRCxHZxBZgw/viewform?embedded=true">
+            <div class="canal">
               <span class="ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M9.6 9a2.4 2.4 0 1 1 2.9 2.4v1.1"/><path d="M12.5 15.4h.01"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
               </span>
-              <b>Consultas</b>
-              <span class="det">Tengo otra pregunta</span>
-            </button>
-          </div>
-
-          <div class="gform-embed" id="formulario-contacto" data-gform-destino>
-            <div class="gform-elegir">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6 12l6-6 6 6"/></svg>
-              <p>Selecciona arriba el motivo de tu mensaje.</p>
+              <div class="canal-texto">
+                <small>Correo</small>
+                <b>comunicaciones.congreso@cip.org.pe</b>
+              </div>
+              <div class="canal-acciones">
+                <a class="canal-btn" href="mailto:comunicaciones.congreso@cip.org.pe?subject=Consulta%20-%20I%20Congreso%20Nacional%20de%20Ingenier%C3%ADa">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                  Escribir
+                </a>
+                <button type="button" class="canal-btn" data-copiar="comunicaciones.congreso@cip.org.pe" aria-label="Copiar correo electrónico">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span>Copiar</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <p class="form-note">El formulario se envía desde esta misma página; no necesitas salir del sitio. Si no carga, escríbenos a <a href="https://www.cip.org.pe" target="_blank" rel="noopener">www.cip.org.pe</a>.</p>
+          <p class="form-note">¿Quieres participar como asistente? La inscripción tiene su propia página: <a href="inscripcion.html">inscríbete aquí</a>.</p>
         </div>
       </div>
 

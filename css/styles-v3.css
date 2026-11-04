@@ -768,12 +768,10 @@ body.v3 .matrix-hint {
 
 
 /* ==========================================================================
-   CONTACTO — Formulario de Google embebido
-   El envio ocurre dentro del iframe: el visitante nunca sale de la pagina.
+   CONTACTO / INSCRIPCION — Tarjeta con cabecera y nota al pie
    ========================================================================== */
 
 body.v3 .contact-card--form {
-  /* El iframe trae su propio padding: la tarjeta solo aporta marco */
   padding: 0;
   overflow: hidden;
   display: flex;
@@ -792,93 +790,8 @@ body.v3 .contact-card--form .form-head p {
   color: var(--gray-500);
 }
 
-/* Altura del formulario. Google Forms se sirve desde otro origen, asi que su
-   alto real no se puede medir: se fija aqui y el iframe hace scroll interno
-   si el formulario es mas largo. Ajustar este valor si cambia el formulario. */
-/* La columna derecha se ensancha a los 640px para los que Google calcula el
-   alto del formulario; asi el alto declarado abajo cuadra y no aparece una
-   segunda barra de scroll dentro del iframe. */
 body.v3 .contact-grid { grid-template-columns: 0.82fr 1.18fr; align-items: start; }
 body.v3 .contact-grid > div:first-child { position: sticky; top: 98px; }
-
-body.v3 .gform-embed {
-  /* 1115px es el alto que declara el codigo de insercion de este formulario */
-  --gform-h: 1115px;
-  position: relative;
-  height: var(--gform-h);
-  background: #fff;
-}
-
-body.v3 .gform-frame {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-body.v3 .gform-embed.is-ready .gform-frame { opacity: 1; }
-
-/* Esqueleto de carga: se retira cuando el iframe dispara load */
-body.v3 .gform-skeleton {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  background: #fff;
-  color: var(--gray-500);
-  font-size: 0.9rem;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-body.v3 .gform-embed.is-ready .gform-skeleton {
-  opacity: 0;
-  visibility: hidden;
-}
-body.v3 .gform-skeleton .spinner {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 3px solid var(--gray-100);
-  border-top-color: var(--navy-800);
-  animation: gform-spin 0.9s linear infinite;
-}
-@keyframes gform-spin { to { transform: rotate(360deg); } }
-
-@media (prefers-reduced-motion: reduce) {
-  body.v3 .gform-skeleton .spinner { animation-duration: 3s; }
-  body.v3 .gform-frame { transition: none; }
-}
-
-/* Aviso cuando todavia no se ha pegado la URL del formulario */
-body.v3 .gform-pending {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 32px;
-  text-align: center;
-  background: repeating-linear-gradient(45deg, var(--gray-050), var(--gray-050) 12px, #fff 12px, #fff 24px);
-  color: var(--gray-500);
-  font-size: 0.9rem;
-}
-body.v3 .gform-pending strong {
-  font-family: var(--font-head);
-  color: var(--navy-900);
-  font-size: 1rem;
-}
-body.v3 .gform-pending code {
-  font-size: 0.82rem;
-  background: var(--navy-900);
-  color: #fff;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
 
 body.v3 .contact-card--form .form-note {
   margin: 0;
@@ -896,8 +809,6 @@ body.v3 .contact-card--form .form-note a { color: var(--navy-800); text-decorati
 @media (max-width: 640px) {
   body.v3 .contact-card--form .form-head { padding: 22px 20px 18px; }
   body.v3 .contact-card--form .form-note { padding: 14px 20px 18px; }
-  /* En pantallas estrechas los campos se apilan y el formulario crece */
-  body.v3 .gform-embed { --gform-h: 1320px; }
 }
 
 
@@ -1894,149 +1805,94 @@ body.v3 .sponsor-slots .slot img {
 }
 
 /* ==========================================================================
-   CONTACTO — Selector de motivo antes del formulario
+   CONTACTO — Canales directos (WhatsApp, teléfono y correo)
    ========================================================================== */
 
-body.v3 .form-opciones {
-  display: grid;
-  /* Una columna por opción visible: Patrocinio se oculta si aún no hay
-     número de WhatsApp */
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  gap: 10px;
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--gray-100);
-  background: var(--gray-050);
-}
-
-body.v3 .form-opciones button {
+body.v3 .canales {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 14px 14px 13px;
-  text-align: left;
+  gap: 12px;
+  padding: 22px 24px;
+}
+
+/* Flex con wrap: si el dato no cabe junto a los botones (el correo es
+   largo), los botones bajan a una segunda linea en vez de partir el texto. */
+body.v3 .canal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  padding: 16px 18px;
   background: #fff;
   border: 1.5px solid var(--gray-300);
   border-radius: var(--radius-md);
-  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
-body.v3 .form-opciones button:hover {
-  border-color: var(--teal-400);
-  box-shadow: var(--shadow-sm);
-}
-body.v3 .form-opciones button:focus-visible {
-  outline: 2px solid var(--navy-800);
-  outline-offset: 2px;
-}
+body.v3 .canal:hover { border-color: var(--teal-400); box-shadow: var(--shadow-sm); }
 
-body.v3 .form-opciones .ico {
+body.v3 .canal .ico {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin-bottom: 4px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   background: var(--teal-050);
   color: var(--teal-600);
 }
-body.v3 .form-opciones .ico svg { width: 18px; height: 18px; }
+body.v3 .canal .ico svg { width: 22px; height: 22px; }
+body.v3 .canal--wa .ico { background: #e7f8ee; color: #1a9e4b; }
 
-body.v3 .form-opciones b {
+body.v3 .canal-texto { flex: 1 1 auto; min-width: 0; }
+body.v3 .canal-texto small {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+body.v3 .canal-texto b {
+  display: block;
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--navy-900);
-}
-body.v3 .form-opciones .det {
-  font-size: 0.78rem;
-  line-height: 1.35;
-  color: var(--gray-500);
+  overflow-wrap: anywhere;
 }
 
-/* Opcion elegida */
-body.v3 .form-opciones button[aria-pressed="true"] {
-  border-color: var(--navy-800);
-  background: var(--navy-900);
-}
-body.v3 .form-opciones button[aria-pressed="true"] b { color: #fff; }
-body.v3 .form-opciones button[aria-pressed="true"] .det { color: rgba(255, 255, 255, 0.72); }
-body.v3 .form-opciones button[aria-pressed="true"] .ico {
-  background: var(--gold-400);
-  color: var(--navy-900);
-}
+body.v3 .canal-acciones { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
 
-/* Mientras no se elige, la caja es baja: no tiene sentido reservar 1115px
-   de alto para un formulario que aun no se ha cargado. */
-body.v3 .gform-embed:not(.tiene-form) { height: auto; }
-
-body.v3 .gform-elegir {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 44px 24px;
-  color: var(--gray-500);
-  text-align: center;
-}
-body.v3 .gform-elegir svg { width: 26px; height: 26px; color: var(--gray-300); }
-body.v3 .gform-elegir p { margin: 0; font-size: 0.92rem; }
-
-@media (max-width: 560px) {
-  /* Apiladas: en una fila de tres no cabe el texto de apoyo */
-  body.v3 .form-opciones { grid-auto-flow: row; padding: 14px; }
-  body.v3 .form-opciones button {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  body.v3 .form-opciones .ico { margin-bottom: 0; }
-  body.v3 .form-opciones .det { flex-basis: 100%; }
-}
-
-/* La opcion de Inscripcion no abre formulario: lleva a su propia pagina.
-   Se ve como las demas, pero con flecha y sin estado "elegido". */
-body.v3 .form-opciones .es-enlace {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 14px 14px 13px;
-  background: #fff;
-  border: 1.5px solid var(--gray-300);
-  border-radius: var(--radius-md);
-  color: inherit;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
-}
-body.v3 .form-opciones .es-enlace:hover {
-  border-color: var(--teal-400);
-  box-shadow: var(--shadow-sm);
-}
-body.v3 .form-opciones .es-enlace b {
+body.v3 .canal-btn {
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  padding: 9px 14px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--navy-800);
+  background: #fff;
+  border: 1.5px solid var(--navy-800);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
-body.v3 .form-opciones .es-enlace .flecha {
-  width: 14px;
-  height: 14px;
-  color: var(--teal-600);
-  transition: transform 0.2s ease;
-}
-body.v3 .form-opciones .es-enlace:hover .flecha { transform: translateX(3px); }
+body.v3 .canal-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+body.v3 .canal-btn:hover { background: var(--navy-900); color: #fff; }
+body.v3 .canal-btn:focus-visible { outline: 2px solid var(--navy-800); outline-offset: 2px; }
 
-@media (max-width: 560px) {
-  body.v3 .form-opciones .es-enlace {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  body.v3 .form-opciones .es-enlace .ico { margin-bottom: 0; }
-  body.v3 .form-opciones .es-enlace .det { flex-basis: 100%; }
+body.v3 .canal-btn--wa { background: #25d366; border-color: #25d366; color: #fff; }
+body.v3 .canal-btn--wa:hover { background: #1a9e4b; border-color: #1a9e4b; color: #fff; }
+
+/* Confirmación breve tras copiar */
+body.v3 .canal-btn.copiado { background: var(--teal-600); border-color: var(--teal-600); color: #fff; }
+
+@media (max-width: 640px) {
+  body.v3 .canales { padding: 16px; }
+  body.v3 .canal { gap: 12px 14px; }
+  body.v3 .canal-acciones { flex-basis: 100%; margin-left: 0; }
+  body.v3 .canal-btn { flex: 1; justify-content: center; }
 }
 
 /* Logo del evento dentro de la cabecera de pagina ---------------------------

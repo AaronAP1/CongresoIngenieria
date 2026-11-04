@@ -3,7 +3,7 @@
 // WhatsApp que recibe las solicitudes de patrocinio y exhibición: solo
 // dígitos, con código de país (Perú: 51), p. ej. "51987654321".
 // Mientras esté vacío, esos botones siguen llevando a contacto.html.
-const WHATSAPP_COMERCIAL = "";
+const WHATSAPP_COMERCIAL = "51953292473";
 
 // Enlace de WhatsApp con el mensaje ya escrito, o null si aún no hay
 // número. También lo usa js/plano.js para "Reservar el módulo".
@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCountdown();
   initEjeCards();
   initPlaceholderForms();
-  initGoogleForms();
-  initFormChooser();
+  initCopiar();
   initHeroCarousel();
   initSponsorMarquee();
   initVerCompleto();
@@ -112,73 +111,53 @@ function initPlaceholderForms() {
   });
 }
 
-/* Inserta el formulario de Google dentro de la pagina.
-   El iframe se crea desde JS para no pedir la URL hasta que haga falta y para
-   poder mostrar un aviso claro mientras no se haya configurado. */
-/* Inserta un formulario de Google dentro de la caja indicada.
-   Lo usan tanto el formulario fijo como el selector de motivo. */
-function montarGform(caja, src, titulo) {
-  caja.classList.remove("is-ready");
-  caja.innerHTML =
-    '<div class="gform-skeleton"><span class="spinner" aria-hidden="true"></span>' +
-    "<span>Cargando formulario…</span></div>";
+/* Botones data-copiar="texto": copian ese texto al portapapeles y muestran
+   "Copiado" un momento. Usado en contacto.html para el telefono y el correo. */
+function initCopiar() {
+  document.querySelectorAll("[data-copiar]").forEach(function (boton) {
+    var etiqueta = boton.querySelector("span") || boton;
+    var original = etiqueta.textContent;
+    var timer = null;
 
-  // Todavia con la URL de ejemplo: se avisa en lugar de cargar un 404.
-  if (!src || src.indexOf("PEGAR_AQUI_EL_ID_DEL_FORMULARIO") !== -1) {
-    caja.innerHTML =
-      '<div class="gform-pending">' +
-      "<strong>Formulario pendiente de conectar</strong>" +
-      "<span>Pega la URL del formulario de Google en el atributo " +
-      "<code>data-gform-src</code> de esta página.</span>" +
-      "</div>";
-    return;
-  }
-
-  caja.classList.add("tiene-form");
-
-  var frame = document.createElement("iframe");
-  frame.className = "gform-frame";
-  frame.src = src;
-  frame.title = (titulo ? titulo + " — " : "") +
-    "I Congreso Nacional de Ingeniería";
-  frame.loading = "lazy";
-  frame.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
-  frame.addEventListener("load", function () { caja.classList.add("is-ready"); });
-  caja.appendChild(frame);
-}
-
-/* Formulario que se carga solo, sin eleccion previa. */
-function initGoogleForms() {
-  document.querySelectorAll("[data-gform]").forEach(function (caja) {
-    montarGform(caja, caja.dataset.gformSrc || "", "Formulario de contacto");
-  });
-}
-
-/* Selector de motivo: tres botones y, al pulsar uno, se carga su formulario.
-   Antes de elegir no se carga ningun iframe de Google. */
-function initFormChooser() {
-  document.querySelectorAll("[data-form-chooser]").forEach(function (grupo) {
-    var caja = document.getElementById(grupo.dataset.formChooser);
-    if (!caja) return;
-
-    var botones = Array.prototype.slice.call(
-      grupo.querySelectorAll("[data-gform-src]")
-    );
-
-    botones.forEach(function (boton) {
-      boton.addEventListener("click", function () {
-        botones.forEach(function (otro) {
-          otro.setAttribute("aria-pressed", otro === boton ? "true" : "false");
-        });
-        montarGform(caja, boton.dataset.gformSrc, boton.dataset.titulo);
-
-        /* En movil el formulario queda fuera de pantalla: se acerca solo. */
-        if (window.matchMedia("(max-width: 980px)").matches) {
-          caja.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+    boton.addEventListener("click", function () {
+      var texto = boton.getAttribute("data-copiar");
+      copiarTexto(texto).then(function (ok) {
+        etiqueta.textContent = ok ? "Copiado" : texto;
+        boton.classList.toggle("copiado", ok);
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          etiqueta.textContent = original;
+          boton.classList.remove("copiado");
+        }, 2000);
       });
     });
   });
+}
+
+/* Clipboard API cuando existe (requiere https); si no, el metodo antiguo con
+   un textarea temporal. Devuelve una promesa con true/false. */
+function copiarTexto(texto) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(texto).then(
+      function () { return true; },
+      function () { return copiarTextoAntiguo(texto); }
+    );
+  }
+  return Promise.resolve(copiarTextoAntiguo(texto));
+}
+
+function copiarTextoAntiguo(texto) {
+  var campo = document.createElement("textarea");
+  campo.value = texto;
+  campo.setAttribute("readonly", "");
+  campo.style.position = "fixed";
+  campo.style.opacity = "0";
+  document.body.appendChild(campo);
+  campo.select();
+  var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+  document.body.removeChild(campo);
+  return ok;
 }
 
 /* Carrusel del hero: alterna las imágenes con fundido y puntos de navegación.
