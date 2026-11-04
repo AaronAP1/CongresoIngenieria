@@ -231,6 +231,15 @@
         "<h3>Declaración del Congreso</h3><p>" + esc(d.declaracion) + "</p></div>";
     }
 
+    /* Foto de referencia bajo la declaración, para que la columna no quede
+       vacía. Usa "fotoLateral" si el eje la tiene; si no, la misma del hero. */
+    var fotoLado = eje.fotoLateral || eje.foto;
+    if (fotoLado) {
+      aside += '<figure class="eje-foto-side">' +
+        '<img src="' + esc(fotoLado) + '" alt="' + esc(eje.titulo) + '" loading="lazy">' +
+        "</figure>";
+    }
+
     if (d.ficha) {
       aside += '<a class="btn btn-primary btn-block" href="' + esc(d.ficha) + '" download>Descargar ficha del eje</a>';
     }

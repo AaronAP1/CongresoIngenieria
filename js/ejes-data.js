@@ -105,6 +105,7 @@ window.EJES = [
     titulo: "Agua y seguridad hídrica",
     resultado: "Cuencas, regulación, saneamiento, reúso, riego y resiliencia.",
     icono: "agua",
+    foto: "assets/img/eje-03-agua.jpg",
     detalle: {
       objetivo: "Garantizar seguridad hídrica para población, agricultura, industria, minería, energía y ecosistemas mediante ingeniería integral de cuencas y soluciones resilientes.",
       prioridad: "Pasar de proyectos hídricos aislados a una política nacional de seguridad hídrica por cuencas, con infraestructura multipropósito, monitoreo digital, reúso y gestión de presas.",

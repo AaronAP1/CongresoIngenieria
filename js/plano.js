@@ -41,7 +41,8 @@
   }
 
   /* [x, y, ancho, alto] en metros → posición en % del recinto. El hueco
-     de 2 px a cada lado separa los módulos que van pegados. */
+     se suma a cada lado: positivo separa, negativo hace que los bordes de
+     dos módulos vecinos se monten y queden pegados en una sola línea. */
   function posicion(sitio, hueco) {
     var h = hueco || 0;
     return "left:calc(" + (sitio[0] / R.ancho * 100) + "% + " + h + "px);" +
@@ -89,7 +90,7 @@
       : "";
 
     return '<button type="button" class="plano-celda es-' + m.estado + '"' +
-      ' style="' + posicion(m.sitio, 2) + '"' +
+      ' style="' + posicion(m.sitio, -0.5) + '"' +
       ' data-codigo="' + esc(m.codigo) + '"' +
       ' title="' + esc(etiquetaAria(m)) + '"' +
       ' aria-label="' + esc(etiquetaAria(m)) + '">' +

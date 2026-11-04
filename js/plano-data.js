@@ -16,8 +16,7 @@
    El código es el del plano de planta. Su letra decide el tipo, la medida y
    la zona (ver TIPOS); los módulos sin letra (01 a 04) son del tipo M.
 
-   Inventario: 52 módulos (A 26 · B 12 · C 2 · E 2 · F 6 · M 4),
-               unos 520 m² de stands.
+   Inventario: 58 módulos (A 32 · B 12 · C 2 · E 2 · F 6 · M 4).
    ========================================================================== */
 
 window.PLANO = {
@@ -32,7 +31,7 @@ window.PLANO = {
     M: { nombre: "Módulo",         medida: "4 × 2 m",  zona: "Pasillo central" }
   },
 
-  /* Situación de los 52 módulos ----------------------------------------- */
+  /* Situación de los 58 módulos ----------------------------------------- */
   modulos: [
     /* A — stands de 3 × 2 en el perímetro */
     ["A01", "disponible", "", ""],
@@ -58,6 +57,12 @@ window.PLANO = {
     ["A21", "disponible", "", ""],
     ["A22", "disponible", "", ""],
     ["A23", "disponible", "", ""],
+    ["A24", "disponible", "", ""],
+    ["A25", "disponible", "", ""],
+    ["A26", "disponible", "", ""],
+    ["A27", "disponible", "", ""],
+    ["A28", "disponible", "", ""],
+    ["A29", "disponible", "", ""],
     ["A30", "disponible", "", ""],
     ["A31", "disponible", "", ""],
     ["A32", "disponible", "", ""],
@@ -105,23 +110,23 @@ window.PLANO = {
      superior izquierda del recinto (el ingreso queda abajo a la derecha).
      ====================================================================== */
 
-  /* Contorno del recinto: 60.40 × 25.20 m, con la esquina del ingreso
+  /* Contorno del recinto: 80.40 × 25.20 m, con la esquina del ingreso
      cortada en diagonal. */
   recinto: {
-    ancho: 60.4,
+    ancho: 80.4,
     alto: 25.2,
-    contorno: [[0, 0], [60.4, 0], [60.4, 13.2], [49.6, 25.2], [0, 25.2]]
+    contorno: [[0, 0], [80.4, 0], [80.4, 13.2], [69.6, 25.2], [0, 25.2]]
   },
 
   ubicaciones: {
-    /* Fila superior */
-    A12: [7, 0, 3, 2],  A13: [10, 0, 3, 2], A14: [13, 0, 3, 2], A15: [16, 0, 3, 2],
-    A16: [19, 0, 3, 2], A17: [22, 0, 3, 2], A18: [25, 0, 3, 2], A30: [28, 0, 3, 2],
-    A31: [31, 0, 3, 2], A32: [34, 0, 3, 2], C04: [37, 0, 9, 2],
-    A19: [52, 0, 3, 2], A20: [55, 0, 3, 2],
-
-    /* Columna derecha */
-    A21: [58, 2, 2, 3], A22: [58, 5, 2, 3], A23: [58, 8, 2, 3],
+    /* Fila superior: A12 a A32 seguidos desde la esquina izquierda */
+    A12: [0, 0, 3, 2], A13: [3, 0, 3, 2], A14: [6, 0, 3, 2], A15: [9, 0, 3, 2],
+    A16: [12, 0, 3, 2], A17: [15, 0, 3, 2], A18: [18, 0, 3, 2], A19: [21, 0, 3, 2],
+    A20: [24, 0, 3, 2], A21: [27, 0, 3, 2], A22: [30, 0, 3, 2], A23: [33, 0, 3, 2],
+    A24: [36, 0, 3, 2], A25: [39, 0, 3, 2], A26: [42, 0, 3, 2], A27: [45, 0, 3, 2],
+    A28: [48, 0, 3, 2], A29: [51, 0, 3, 2], A30: [54, 0, 3, 2], A31: [57, 0, 3, 2],
+    A32: [60, 0, 3, 2],
+    C04: [63, 0, 9, 2],
 
     /* Fila inferior */
     A11: [5, 23, 3, 2],  A10: [8, 23, 3, 2],  A09: [11, 23, 3, 2], A08: [14, 23, 3, 2],
@@ -133,23 +138,23 @@ window.PLANO = {
     F03: [0, 17, 2, 2], F02: [0, 19, 2, 2], F01: [0, 21, 2, 2],
 
     /* Bloques B */
-    B14: [5, 5, 4, 3],   B13: [9, 5, 4, 3],   B15: [5, 8, 4, 3],   B12: [9, 8, 4, 3],
-    B06: [26, 5, 4, 3],  B03: [30, 5, 4, 3],  B07: [26, 8, 4, 3],  B04: [30, 8, 4, 3],
-    B16: [5, 14, 4, 3],  B11: [9, 14, 4, 3],  B17: [5, 17, 4, 3],  B10: [9, 17, 4, 3],
+    B14: [6.7, 5, 4, 3],  B13: [10.7, 5, 4, 3], B15: [6.7, 8, 4, 3],  B12: [10.7, 8, 4, 3],
+    B06: [34.6, 5, 4, 3], B03: [38.6, 5, 4, 3], B07: [34.6, 8, 4, 3], B04: [38.6, 8, 4, 3],
+    B16: [6.7, 14, 4, 3], B11: [10.7, 14, 4, 3], B17: [6.7, 17, 4, 3], B10: [10.7, 17, 4, 3],
 
     /* Módulos del pasillo central */
-    "04": [17.5, 6, 2, 4], "03": [19.5, 6, 2, 4],
-    "02": [42, 6, 2, 4],   "01": [44, 6, 2, 4],
+    "04": [23.3, 6, 2, 4], "03": [25.3, 6, 2, 4],
+    "02": [55.9, 6, 2, 4], "01": [57.9, 6, 2, 4],
 
     /* Islas */
-    E02: [25, 14, 10, 6], E01: [39, 14, 10, 6]
+    E02: [33.3, 14, 10, 6], E01: [51.9, 14, 10, 6]
   },
 
   /* Lo que no se alquila. forma "vertical" escribe el rótulo de canto. */
   servicios: [
-    { nombre: "Receso de café",  clase: "zona-cafe",      forma: "vertical", sitio: [37, 5, 2, 6] },
-    { nombre: "Receso de café",  clase: "zona-cafe",      sitio: [17.5, 14, 3, 6] },
-    { nombre: "Árbol existente", clase: "zona-arbol",     sitio: [46, 0, 6, 2] },
-    { nombre: "Monumento",       clase: "zona-monumento", sitio: [48.7, 4.9, 6, 6] }
+    { nombre: "Receso de café",  clase: "zona-cafe",      forma: "vertical", sitio: [49.3, 5, 2, 6] },
+    { nombre: "Receso de café",  clase: "zona-cafe",      sitio: [23.3, 14, 3, 6] },
+    { nombre: "Árbol existente", clase: "zona-arbol",     sitio: [72, 0, 6, 2] },
+    { nombre: "Monumento",       clase: "zona-monumento", sitio: [64.8, 4.9, 6, 6] }
   ]
 };
