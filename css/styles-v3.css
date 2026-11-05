@@ -1578,6 +1578,156 @@ body.v3 .persona-nombre {
   line-height: 1.25;
   color: var(--navy-900);
 }
+/* --------------------------------------- Organigrama de la Junta Directiva */
+
+body.v3 .organigrama {
+  --org-linea: var(--gray-300);
+  --org-alto: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.v3 .org-nivel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+/* Linea vertical que une cada nivel con el de arriba */
+body.v3 .org-nivel-2,
+body.v3 .org-nivel-3 { padding-top: var(--org-alto); }
+body.v3 .org-nivel-2::before,
+body.v3 .org-nivel-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: var(--org-alto);
+  margin-left: -1px;
+  background: var(--org-linea);
+}
+
+/* Tarjetas del organigrama: retrato arriba, texto centrado */
+body.v3 .org-nodo {
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+  padding: 22px 20px;
+  text-align: center;
+}
+body.v3 .org-nodo .persona-cargo { margin-bottom: 5px; }
+
+/* Decano: el cargo mas alto, en azul institucional */
+body.v3 .org-decano {
+  max-width: 360px;
+  padding: 28px 24px;
+  background: linear-gradient(160deg, var(--navy-800), var(--navy-950));
+  border-color: var(--navy-800);
+  box-shadow: var(--shadow-md);
+}
+body.v3 .org-decano:hover { border-color: var(--gold-500); }
+body.v3 .org-decano .avatar {
+  width: 78px;
+  height: 78px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--gold-400);
+  box-shadow: 0 0 0 3px var(--gold-500);
+}
+body.v3 .org-decano .avatar svg { width: 38px; height: 38px; }
+body.v3 .org-decano .persona-cargo { color: var(--gold-400); font-size: 0.76rem; }
+body.v3 .org-decano .persona-nombre { color: #fff; font-size: 1.2rem; }
+
+/* Vicedecano: segundo nivel, con filete dorado */
+body.v3 .org-vice {
+  max-width: 330px;
+  border-top: 4px solid var(--gold-500);
+}
+body.v3 .org-vice .avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--navy-900);
+  color: var(--gold-400);
+}
+body.v3 .org-vice .avatar svg { width: 30px; height: 30px; }
+body.v3 .org-vice .persona-cargo { color: var(--red-700); }
+body.v3 .org-vice .persona-nombre { font-size: 1.08rem; }
+
+/* Rotulo del tercer nivel */
+body.v3 .org-etiqueta {
+  position: relative;
+  z-index: 1;
+  padding: 6px 16px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy-900);
+  background: var(--gray-050);
+  border: 1px solid var(--gray-300);
+  border-radius: 999px;
+}
+
+/* Ramas de los directores: barra horizontal + bajada a cada tarjeta */
+body.v3 .org-ramas {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 1000px;
+  padding-top: 20px;
+}
+body.v3 .org-ramas::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  margin-left: -1px;
+  background: var(--org-linea);
+}
+body.v3 .org-rama {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: var(--org-alto) 10px 0;
+}
+body.v3 .org-rama::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: var(--org-alto);
+  margin-left: -1px;
+  background: var(--org-linea);
+}
+body.v3 .org-rama::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--org-linea);
+}
+body.v3 .org-rama:first-child::after { left: 50%; }
+body.v3 .org-rama:last-child::after { right: 50%; }
+
+@media (max-width: 760px) {
+  body.v3 .organigrama { --org-alto: 24px; }
+  body.v3 .org-ramas { grid-template-columns: 1fr; }
+  body.v3 .org-rama::after { display: none; }
+  body.v3 .org-rama + .org-rama { padding-top: 16px; }
+  body.v3 .org-rama + .org-rama::before { height: 16px; }
+}
+
 /* ------------------------------------------- Boton y panel "ver completo" */
 
 body.v3 .ver-completo {

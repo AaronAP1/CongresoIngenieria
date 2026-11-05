@@ -64,50 +64,61 @@
       <p>Consejo Nacional del Colegio de Ingenieros del Perú, entidad organizadora del Congreso.</p>
     </div>
 
-    <!-- Junta Directiva Nacional: los seis cargos nacionales -->
-    <div class="personas">
-          <div class="persona persona-lead">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Decano Nacional</span>
-              <span class="persona-nombre">Jaime Antonio Ruiz Béjar</span>
+    <!-- Junta Directiva Nacional en forma de organigrama:
+         Decano > Vicedecano > Directores -->
+    <div class="organigrama" role="list" aria-label="Organigrama de la Junta Directiva Nacional">
+      <div class="org-nivel org-nivel-1" role="listitem">
+        <div class="persona org-nodo org-decano">
+          <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
+          <div class="persona-datos">
+            <span class="persona-cargo">Decano Nacional</span>
+            <span class="persona-nombre">Jaime Antonio Ruiz Béjar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-nivel org-nivel-2" role="listitem">
+        <div class="persona org-nodo org-vice">
+          <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
+          <div class="persona-datos">
+            <span class="persona-cargo">Vicedecano Nacional</span>
+            <span class="persona-nombre">Carlos Manuel Burgos Montenegro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-nivel org-nivel-3" role="listitem">
+        <span class="org-etiqueta">Directores Nacionales</span>
+        <div class="org-ramas">
+          <div class="org-rama">
+            <div class="persona org-nodo">
+              <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
+              <div class="persona-datos">
+                <span class="persona-cargo">Director Tesorero</span>
+                <span class="persona-nombre">Norman Jesús Beltrán Castañón</span>
+              </div>
             </div>
           </div>
-          <div class="persona persona-lead">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Vicedecano Nacional</span>
-              <span class="persona-nombre">Carlos Manuel Burgos Montenegro</span>
+          <div class="org-rama">
+            <div class="persona org-nodo">
+              <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
+              <div class="persona-datos">
+                <span class="persona-cargo">Directora Prosecretaria Nacional</span>
+                <span class="persona-nombre">María Elizabeth Bejarano Meza</span>
+              </div>
             </div>
           </div>
-          <div class="persona">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Directora Secretaria Nacional</span>
-              <span class="persona-nombre">Azucena Liliana Santa María Muro</span>
+          <div class="org-rama">
+            <div class="persona org-nodo">
+              <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
+              <div class="persona-datos">
+                <span class="persona-cargo">Director Protesorero</span>
+                <span class="persona-nombre">Carlos Fidel Ponce Sánchez</span>
+              </div>
             </div>
           </div>
-          <div class="persona">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Director Tesorero</span>
-              <span class="persona-nombre">Norman Jesús Beltrán Castañón</span>
-            </div>
-          </div>
-          <div class="persona">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Directora Prosecretaria Nacional</span>
-              <span class="persona-nombre">María Elizabeth Bejarano Meza</span>
-            </div>
-          </div>
-          <div class="persona">
-            <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <div class="persona-datos">
-              <span class="persona-cargo">Director Protesorero</span>
-              <span class="persona-nombre">Carlos Fidel Ponce Sánchez</span>
-            </div>
-          </div>
+        </div>
+      </div>
     </div>
 
     <div class="ver-completo">
