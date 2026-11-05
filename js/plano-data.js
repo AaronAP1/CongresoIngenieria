@@ -3,18 +3,9 @@
    --------------------------------------------------------------------------
    Alimenta el plano interactivo de exhibicion.html (lo dibuja js/plano.js).
 
-   Todos los módulos arrancan "disponible": el Comité aún no asigna ninguno.
-
-   Cómo actualizar un módulo (solo se toca MODULOS):
-     · Cambia su estado: "disponible" | "reservado" | "ocupado".
-     · Si pasa a "ocupado" o "reservado", pon empresa y rubro.
-     · Para dejarlo libre, basta con "disponible" y empresa vacía.
-
-   Cada fila de MODULOS es:
-     [ código, estado, empresa, rubro ]
-
-   El código es el del plano de planta. Su letra decide el tipo, la medida y
-   la zona (ver TIPOS); los módulos sin letra (01 a 04) son del tipo M.
+   El estado de cada módulo (disponible / reservado / ocupado), la empresa
+   y el rubro NO van aquí: se leen de data/modulos.json. Este archivo solo
+   guarda los tipos y la planta (dónde va cada módulo y cada servicio).
 
    Inventario: 58 módulos (A 32 · B 12 · C 2 · E 2 · F 6 · M 4).
    ========================================================================== */
@@ -30,79 +21,6 @@ window.PLANO = {
     F: { nombre: "Stand",          medida: "2 × 2 m",  zona: "Fondo del recinto" },
     M: { nombre: "Módulo",         medida: "4 × 2 m",  zona: "Pasillo central" }
   },
-
-  /* Situación de los 58 módulos ----------------------------------------- */
-  modulos: [
-    /* A — stands de 3 × 2 en el perímetro */
-    ["A01", "disponible", "", ""],
-    ["A02", "disponible", "", ""],
-    ["A03", "disponible", "", ""],
-    ["A04", "disponible", "", ""],
-    ["A05", "disponible", "", ""],
-    ["A06", "disponible", "", ""],
-    ["A07", "disponible", "", ""],
-    ["A08", "disponible", "", ""],
-    ["A09", "disponible", "", ""],
-    ["A10", "disponible", "", ""],
-    ["A11", "disponible", "", ""],
-    ["A12", "disponible", "", ""],
-    ["A13", "disponible", "", ""],
-    ["A14", "disponible", "", ""],
-    ["A15", "disponible", "", ""],
-    ["A16", "disponible", "", ""],
-    ["A17", "disponible", "", ""],
-    ["A18", "disponible", "", ""],
-    ["A19", "disponible", "", ""],
-    ["A20", "disponible", "", ""],
-    ["A21", "disponible", "", ""],
-    ["A22", "disponible", "", ""],
-    ["A23", "disponible", "", ""],
-    ["A24", "disponible", "", ""],
-    ["A25", "disponible", "", ""],
-    ["A26", "disponible", "", ""],
-    ["A27", "disponible", "", ""],
-    ["A28", "disponible", "", ""],
-    ["A29", "disponible", "", ""],
-    ["A30", "disponible", "", ""],
-    ["A31", "disponible", "", ""],
-    ["A32", "disponible", "", ""],
-
-    /* B — stands de 4 × 3 en los tres bloques centrales */
-    ["B03", "disponible", "", ""],
-    ["B04", "disponible", "", ""],
-    ["B06", "disponible", "", ""],
-    ["B07", "disponible", "", ""],
-    ["B10", "disponible", "", ""],
-    ["B11", "disponible", "", ""],
-    ["B12", "disponible", "", ""],
-    ["B13", "disponible", "", ""],
-    ["B14", "disponible", "", ""],
-    ["B15", "disponible", "", ""],
-    ["B16", "disponible", "", ""],
-    ["B17", "disponible", "", ""],
-
-    /* C — stands ampliados de 9 × 2 */
-    ["C01", "disponible", "", ""],
-    ["C04", "disponible", "", ""],
-
-    /* E — islas de 10 × 6 */
-    ["E01", "disponible", "", ""],
-    ["E02", "disponible", "", ""],
-
-    /* F — stands de 2 × 2 al fondo */
-    ["F01", "disponible", "", ""],
-    ["F02", "disponible", "", ""],
-    ["F03", "disponible", "", ""],
-    ["F04", "disponible", "", ""],
-    ["F05", "disponible", "", ""],
-    ["F06", "disponible", "", ""],
-
-    /* M — módulos de 4 × 2 en el pasillo central */
-    ["01", "disponible", "", ""],
-    ["02", "disponible", "", ""],
-    ["03", "disponible", "", ""],
-    ["04", "disponible", "", ""]
-  ],
 
   /* ======================================================================
      PLANTA — dónde va cada cosa. Solo se toca si cambia el plano.

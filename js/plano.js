@@ -1,7 +1,8 @@
 /* ==========================================================================
    PLANO DE EXHIBICIÓN — dibujo e interacción
    --------------------------------------------------------------------------
-   Lee js/plano-data.js y dibuja el plano de exhibicion.html:
+   Lee js/plano-data.js (planta) y data/modulos.json (estado de cada
+   módulo) y dibuja el plano de exhibicion.html:
 
      · traza el contorno del recinto y el pórtico de ingreso,
      · ubica cada módulo y cada servicio a escala, en metros,
@@ -51,27 +52,69 @@
       "height:calc(" + (sitio[3] / R.alto * 100) + "% - " + 2 * h + "px);";
   }
 
-  /* Convierte las filas compactas del archivo de datos en objetos */
-  var TODOS = PLANO.modulos.map(function (m) {
-    var codigo = m[0];
-    var letra = letraDe(codigo);
-    var tipo = PLANO.tipos[letra] || {};
-    return {
-      codigo: codigo,
-      letra: letra,
-      sitio: PLANO.ubicaciones[codigo],
-      estado: m[1],
-      empresa: m[2] || "",
-      rubro: m[3] || "",
-      tipo: tipo.nombre || "",
-      medida: tipo.medida || "",
-      zona: tipo.zona || ""
-    };
-  }).filter(function (m) {
-    /* Un código sin ubicación no se puede dibujar: se avisa y se omite */
-    if (!m.sitio && window.console) console.warn("plano: falta la ubicación de " + m.codigo);
-    return !!m.sitio;
-  });
+  /* Archivo con el estado de cada módulo. Se pide sin caché para que un
+     cambio en el JSON se vea apenas se recarga la página. */
+  var URL_MODULOS = "data/modulos.json";
+
+  function avisar(texto) {
+    if (window.console) console.warn("plano: " + texto);
+  }
+
+  /* Arma la lista de módulos: la planta (PLANO.ubicaciones) dice qué
+     módulos existen y dónde van; el JSON dice su estado, empresa y rubro.
+     Un módulo de la planta que no esté en el JSON se da por disponible. */
+  var TODOS = [];
+
+  function construir(filas) {
+    var datos = {};
+    (filas || []).forEach(function (f) {
+      if (!f || !f.codigo) return;
+      var codigo = String(f.codigo).trim();
+      if (!PLANO.ubicaciones[codigo]) {
+        avisar("el módulo " + codigo + " del JSON no existe en la planta");
+        return;
+      }
+      datos[codigo] = f;
+    });
+
+    TODOS = Object.keys(PLANO.ubicaciones).map(function (codigo) {
+      var f = datos[codigo] || {};
+      var estado = String(f.estado || "disponible").trim().toLowerCase();
+      if (!ESTADOS[estado]) {
+        avisar("estado desconocido \"" + f.estado + "\" en " + codigo + "; se toma como disponible");
+        estado = "disponible";
+      }
+      var letra = letraDe(codigo);
+      var tipo = PLANO.tipos[letra] || {};
+      return {
+        codigo: codigo,
+        letra: letra,
+        sitio: PLANO.ubicaciones[codigo],
+        estado: estado,
+        empresa: estado === "disponible" ? "" : String(f.empresa || "").trim(),
+        rubro: estado === "disponible" ? "" : String(f.rubro || "").trim(),
+        tipo: tipo.nombre || "",
+        medida: tipo.medida || "",
+        zona: tipo.zona || ""
+      };
+    });
+  }
+
+  function cargarModulos() {
+    if (!window.fetch) return Promise.resolve([]);
+    return fetch(URL_MODULOS, { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (json) {
+        return Array.isArray(json) ? json : (json && json.modulos) || [];
+      })
+      .catch(function (e) {
+        avisar("no se pudo leer " + URL_MODULOS + " (" + e.message + "); todos los módulos se muestran disponibles");
+        return [];
+      });
+  }
 
   /* ------------------------------------------------------------- Dibujo -- */
 
@@ -179,8 +222,7 @@
     /* Con número de WhatsApp configurado (js/main.js) la reserva va por
        ahí; si no, al formulario de contacto. */
     var whatsapp = window.enlaceWhatsApp && window.enlaceWhatsApp(
-      "Hola, me interesa reservar el módulo " + m.codigo +
-      " del área de exhibición del I Congreso Nacional de Ingeniería.");
+      "Hola, quisiera información para participar como exhibidor en el I Congreso Nacional de Ingeniería.");
 
     var pie = m.estado === "disponible"
       ? '<a class="btn btn-primary btn-block" href="' +
@@ -289,11 +331,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (!document.getElementById("plano-mapa")) return;
 
-    dibujar();
-    pintarConteos();
     pintarFicha(null);
     montarFiltros();
-    aplicarFiltros();
 
     /* Un solo escuchador para todas las celdas, en lugar de uno por celda */
     document.getElementById("plano-mapa").addEventListener("click", function (e) {
@@ -301,9 +340,16 @@
       if (celda) seleccionar(celda.getAttribute("data-codigo"));
     });
 
-    revisarDesborde();
     window.addEventListener("resize", revisarDesborde);
 
-    if (window.revealScan) window.revealScan();
+    /* El plano se dibuja cuando llega el JSON con el estado de los módulos */
+    cargarModulos().then(function (filas) {
+      construir(filas);
+      dibujar();
+      pintarConteos();
+      aplicarFiltros();
+      revisarDesborde();
+      if (window.revealScan) window.revealScan();
+    });
   });
 })();
